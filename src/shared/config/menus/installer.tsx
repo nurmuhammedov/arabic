@@ -1,15 +1,4 @@
-import {
-  Award,
-  BadgeCheck,
-  Car,
-  Database,
-  FileText,
-  MapPin,
-  ShieldCheck,
-  TestTube2,
-  Users,
-  Wrench,
-} from 'lucide-react'
+import { Award, BadgeCheck, Car, Database, FileText, MapPin, ShieldCheck, TestTube2, Users, Wrench } from 'lucide-react'
 
 export const installerMenu = [
   {

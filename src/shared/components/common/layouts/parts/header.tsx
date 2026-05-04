@@ -1,6 +1,5 @@
 import { Separator, SidebarTrigger } from '@topcoder/components'
 import { NAVIGATIONS } from '@topcoder/config'
-import { UserRole } from '@topcoder/constants'
 import { useTypedSelector } from '@topcoder/hooks'
 import { useTranslation } from 'react-i18next'
 import { useLocation } from 'react-router-dom'
@@ -13,10 +12,9 @@ export function Header() {
   const { user } = useTypedSelector((state) => state.auth)
 
   const findTitle = () => {
-    if (!user?.roles || user.roles.length === 0) return ''
-    const sections = user.roles.flatMap((role: UserRole) => NAVIGATIONS[role] || [])
+    if (!user || !user.role) return ''
+    const sections = NAVIGATIONS[user.role] || []
 
-    // First try exact match
     for (const section of sections) {
       for (const item of section.items) {
         if (item.url === pathname) return item.title
@@ -27,11 +25,9 @@ export function Header() {
       }
     }
 
-    // Then try startsWith (for sub-routes like /edit/:id or /add)
     for (const section of sections) {
       for (const item of section.items) {
         if (item.items) {
-          // Eng uzun urlni birinchi tekshirish uchun sort qilamiz
           const subItems = [...item.items].sort((a, b) => b.url.length - a.url.length)
           const subItem = subItems.find((sub) => pathname.startsWith(sub.url))
           if (subItem) return subItem.title

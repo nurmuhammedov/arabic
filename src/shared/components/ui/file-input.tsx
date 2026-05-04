@@ -209,8 +209,8 @@ export interface FileInputProps {
   showDownload?: boolean
   uploadEndpoint?: string
   initialFilesData?:
-  | Pick<FileData, 'id' | 'url' | 'originalName' | 'name' | 'size' | 'type'>
-  | Pick<FileData, 'id' | 'url' | 'originalName' | 'name' | 'size' | 'type'>[]
+    | Pick<FileData, 'id' | 'url' | 'originalName' | 'name' | 'size' | 'type'>
+    | Pick<FileData, 'id' | 'url' | 'originalName' | 'name' | 'size' | 'type'>[]
   multiple?: boolean
   maxFiles?: number
   buttonText?: string

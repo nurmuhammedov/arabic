@@ -1,5 +1,5 @@
 import { UserRole } from '@topcoder/constants'
-import { LayoutDashboard, Users, Map, MapPin } from 'lucide-react'
+import { LayoutDashboard, Map, MapPin, Users } from 'lucide-react'
 import React from 'react'
 
 export interface INavigationItem {

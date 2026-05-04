@@ -1,5 +1,5 @@
-import { superadminRoutes } from '@topcoder/app/routes/superadmin'
 import { studentRoutes } from '@topcoder/app/routes/student'
+import { superadminRoutes } from '@topcoder/app/routes/superadmin'
 import { FullPageLoader } from '@topcoder/components'
 import { UserRole } from '@topcoder/constants'
 import { useTypedSelector } from '@topcoder/hooks'

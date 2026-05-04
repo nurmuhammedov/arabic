@@ -1,6 +1,6 @@
-import { useData } from '@topcoder/hooks'
-import { DataTable } from '@topcoder/components'
 import { ColumnDef } from '@tanstack/react-table'
+import { DataTable } from '@topcoder/components'
+import { useData } from '@topcoder/hooks'
 import { TypeAny } from '@topcoder/types'
 import { useTranslation } from 'react-i18next'
 
@@ -29,11 +29,7 @@ export default function DistrictsList() {
         <h1 className="text-2xl font-bold">{t('districts')}</h1>
       </div>
 
-      <DataTable
-        columns={columns}
-        data={districts}
-        loading={isLoading}
-      />
+      <DataTable columns={columns} data={districts} isLoading={isLoading} />
     </div>
   )
 }

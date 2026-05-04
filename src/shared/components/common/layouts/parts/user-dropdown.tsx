@@ -24,7 +24,7 @@ export function UserDropdown() {
 
   if (!user) return null
 
-  const userRoleLabel = user.roles?.map((role) => USER_ROLE_LABELS[role]).join(', ') || ''
+  const userRoleLabel = user.role ? USER_ROLE_LABELS[user.role] : ''
 
   return (
     <DropdownMenu>

@@ -8,7 +8,6 @@ export const StatusBadge = ({ status }: { status: string }) => {
     string,
     'default' | 'secondary' | 'destructive' | 'outline' | 'success' | 'warning' | 'info' | 'error'
   > = {
-    // Add basic variants as needed
     ADMIN: 'destructive',
     STUDENT: 'info',
     ACTIVE: 'success',

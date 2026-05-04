@@ -1,6 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button, Form, FormInput, FormPasswordInput, FormSelect } from '@topcoder/components'
-import { useActions, useTypedSelector, useRegions, useDistricts } from '@topcoder/hooks'
+import { useActions, useDistricts, useRegions, useTypedSelector } from '@topcoder/hooks'
 import { cn } from '@topcoder/lib'
 import { registerSchema } from '@topcoder/modules/auth/schemas'
 import { InferType, TypeAny } from '@topcoder/types'
@@ -61,7 +61,7 @@ export function RegisterForm({ className }: ComponentPropsWithoutRef<'div'>) {
             <FormInput control={form.control} name="fullName" label="full_name" required />
             <FormInput control={form.control} name="username" label="username" required />
           </div>
-          
+
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <FormInput control={form.control} name="email" label="email" required />
             <FormInput control={form.control} name="phoneNumber" label="phone" required />

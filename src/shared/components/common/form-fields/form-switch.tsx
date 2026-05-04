@@ -12,13 +12,7 @@ interface FormSwitchProps<T extends FieldValues> {
   className?: string
 }
 
-export function FormSwitch<T extends FieldValues>({
-  control,
-  name,
-  label,
-  disabled,
-  className,
-}: FormSwitchProps<T>) {
+export function FormSwitch<T extends FieldValues>({ control, name, label, disabled, className }: FormSwitchProps<T>) {
   const { t } = useTranslation(['labels'])
 
   return (

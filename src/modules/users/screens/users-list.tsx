@@ -1,6 +1,6 @@
-import { useData } from '@topcoder/hooks'
-import { DataTable, StatusBadge } from '@topcoder/components'
 import { ColumnDef } from '@tanstack/react-table'
+import { DataTable, StatusBadge } from '@topcoder/components'
+import { useData } from '@topcoder/hooks'
 import { IUser, TypeAny } from '@topcoder/types'
 import { useTranslation } from 'react-i18next'
 
@@ -46,11 +46,7 @@ export default function UsersList() {
         <h1 className="text-2xl font-bold">{t('users')}</h1>
       </div>
 
-      <DataTable
-        columns={columns}
-        data={users}
-        loading={isLoading}
-      />
+      <DataTable columns={columns} data={users} isLoading={isLoading} />
     </div>
   )
 }
