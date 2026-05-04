@@ -1,0 +1,197 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 96.5%;
+    --foreground: 0 0% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 15%;
+
+    --teal: 188 98% 24%;
+    --teal-foreground: 188 30% 96%;
+
+    --primary: 225 77% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    /*--primary: 188 98% 24%;*/
+    /*--primary-foreground: 188 30% 96%;*/
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 0 0% 15%;
+
+    --muted: 210 40% 98%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 225 77% 45%;
+
+    --destructive: 5 72% 46%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    /*--ring: 225 77% 45%;*/
+    --ring: 188 98% 24%;
+
+    --chart-1: 225 77% 45%;
+    --chart-2: 101 65% 44%;
+    --chart-3: 43 96% 56%;
+    --chart-4: 5 72% 46%;
+    --chart-5: 217 91% 60%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 188 98% 24%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 188 90% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 96.5%;
+    --sidebar-accent-foreground: 0 0% 15%;
+    /*--sidebar-border: 188 50% 15%;*/
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 188 90% 50%;
+  }
+
+  .dark {
+  }
+
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--border);
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    min-height: 100vh;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hidden {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-x-hidden {
+    height: 0;
+  }
+}
+
+/*---break---*/
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.qr-print-area {
+  display: none;
+}
+
+.qr-label-card .qr-label-body {
+  display: flex;
+  align-items: center;
+  gap: 4mm;
+  height: 100%;
+}
+
+.qr-label-card .qr-label-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1mm;
+}
+
+.qr-label-card .qr-label-field {
+  margin: 0;
+  line-height: 1.3;
+  background: #eef2ff;
+  border-radius: 2px;
+  padding: 0.5mm 1.5mm;
+}
+
+.qr-label-card .qr-label-key {
+  display: block;
+  font-size: 9pt;
+  font-weight: 700;
+  color: #0f172a;
+  white-space: nowrap;
+}
+
+.qr-label-card .qr-label-value {
+  display: block;
+  font-size: 9.5pt;
+  color: #2563eb;
+  font-weight: 500;
+  word-break: break-all;
+}
+
+.qr-label-card .qr-label-qr {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 0 !important;
+  }
+
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  #root {
+    display: none !important;
+  }
+
+  .qr-print-area {
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    gap: 3mm;
+    padding: 5mm;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .qr-print-area .qr-label-card {
+    display: none !important;
+  }
+
+  .qr-print-area .qr-label-card.qr-print-visible {
+    display: block !important;
+    width: 135mm;
+    height: 42mm;
+    padding: 2.5mm 4mm;
+    border: 0.5pt solid #aaa;
+    box-sizing: border-box;
+    page-break-inside: avoid;
+    overflow: hidden;
+  }
+}

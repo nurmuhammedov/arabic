@@ -1,0 +1,18 @@
+{
+  "choose": "Tanlang",
+  "choose_date": "Sanani tanlang",
+  "nothing_found": "Hech narsa topilmadi!",
+  "search": "Qidirish...",
+  "enter": "Kiriting",
+  "show_password": "Parolni koʻrsatish",
+  "hide_password": "Parolni yashirish",
+  "uploading": "Yuklanmoqda",
+  "invalid_file_format": "{{type}} fayl yuklash mumkin emas!",
+  "file_size_exceeded": "Fayl hajmi {{size}}MB dan oshmasligi kerak",
+  "max_files_exceeded": "Maksimal {{count}} ta fayl yuklash mumkin",
+  "file_upload_error": "Fayl yuklashda xatolik",
+  "attach_file": "Fayl biriktirish",
+  "unnamed_file": "Fayl",
+  "noting_found": "Hech narsa topilmadi!",
+  "file": "Hujjat"
+}

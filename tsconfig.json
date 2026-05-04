@@ -1,0 +1,26 @@
+{
+  "files": [],
+  "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }],
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@topcoder/components/*": ["shared/components/*"],
+      "@topcoder/constants/*": ["shared/constants/*"],
+      "@topcoder/providers/*": ["app/providers/*"],
+      "@topcoder/contexts/*": ["app/contexts/*"],
+      "@topcoder/assets/*": ["shared/assets/*"],
+      "@topcoder/config/*": ["shared/config/*"],
+      "@topcoder/types/*": ["shared/types/*"],
+      "@topcoder/hooks/*": ["shared/hooks/*"],
+      "@topcoder/styles/*": ["app/styles/*"],
+      "@topcoder/modules/*": ["modules/*"],
+      "@topcoder/store/*": ["app/store/*"],
+      "@topcoder/lib/*": ["shared/lib/*"],
+      "@topcoder/api/*": ["shared/api/*"],
+      "@topcoder/i18n/*": ["app/i18n/*"],
+      "@topcoder/pages/*": ["pages/*"],
+      "@topcoder/app/*": ["app/*"]
+      //"@topcoder/*": ["*"]
+    }
+  }
+}

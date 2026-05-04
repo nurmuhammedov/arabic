@@ -1,0 +1,15 @@
+{
+  "main_info": "Asosiy ma’lumotlar",
+  "name": "Nomi",
+  "country": "Davlat",
+  "region": "Viloyat",
+  "district": "Tuman",
+  "soato": "Soato",
+  "address": "Manzil",
+  "capacity": "Ballon sig‘imi",
+  "weight": "Ballon og‘irligi",
+  "working_pressure": "Ballon ishchi bosimi",
+  "test_pressure": "Ballon sinov bosimi",
+  "prefix": "Prefiks",
+  "shape": "Ballon shakli"
+}

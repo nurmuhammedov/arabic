@@ -1,0 +1,14 @@
+{
+  "name": "Nomi",
+  "country": "Davlat",
+  "soato": "Soato",
+  "branch_name": "Filial nomi",
+  "latitude": "Kenglik",
+  "longitude": "Uzunlik",
+  "status": "Holati",
+  "tin": "STIR",
+  "organization_name": "Tashkilot nomi",
+  "approve": "Tasdiqlash",
+  "version": "Versiya",
+  "force_update": "Majburiy yangilash"
+}

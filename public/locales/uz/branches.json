@@ -1,0 +1,17 @@
+{
+  "branches": "Filiallar",
+  "branch_list": "Filiallar ro‘yxati",
+  "add_branch": "Filial qo‘shish",
+  "edit_branch": "Filialni tahrirlash",
+  "approve": "Tasdiqlash",
+  "reject": "Rad etish",
+  "PENDING": "Kutilmoqda",
+  "APPROVED": "Tasdiqlangan",
+  "REJECTED": "Rad etilgan",
+  "branch_created": "Filial qo‘shish uchun so‘rov yuborildi!",
+  "branch_approved": "Filial muvaffaqiyatli tasdiqlandi!",
+  "branch_rejected": "Filial rad etildi!",
+  "branch_deleted": "Filial muvaffaqiyatli o‘chirildi!",
+  "select_organization": "Tashkilotni tanlang",
+  "search_placeholder": "Filial nomi bo‘yicha qidirish..."
+}
