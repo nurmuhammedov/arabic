@@ -1,14 +1,13 @@
 import { MutateOptions, Query, useMutation, useQueryClient } from '@tanstack/react-query'
 import { CommonService } from '@topcoder/api'
 import { showMessage } from '@topcoder/lib'
-import { TypeAny } from '@topcoder/types'
 import { useTranslation } from 'react-i18next'
 
 export const useDelete = (endpoint: string, invalidateQueryKey: string | string[] = [], msg?: string) => {
   const { t } = useTranslation(['errors'])
   const queryClient = useQueryClient()
 
-  const mutation = useMutation<TypeAny, Error, string | number>({
+  const mutation = useMutation<unknown, Error, string | number>({
     mutationFn: (id) => CommonService.deleteData(endpoint, id),
     onSuccess: () => {
       const queryKeys = Array.isArray(invalidateQueryKey) ? invalidateQueryKey : [invalidateQueryKey]
@@ -34,9 +33,9 @@ export const useDelete = (endpoint: string, invalidateQueryKey: string | string[
 
   return {
     ...mutation,
-    mutate: (id: string | number, options?: MutateOptions<TypeAny, Error, string | number>) =>
+    mutate: (id: string | number, options?: MutateOptions<unknown, Error, string | number>) =>
       mutation.mutate(id, options),
-    mutateAsync: (id: string | number, options?: MutateOptions<TypeAny, Error, string | number>) =>
+    mutateAsync: (id: string | number, options?: MutateOptions<unknown, Error, string | number>) =>
       mutation.mutateAsync(id, options),
   }
 }

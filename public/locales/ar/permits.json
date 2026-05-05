@@ -1,0 +1,17 @@
+{
+  "title": "التصاريح",
+  "org_permits": "تصاريح المنظمة",
+  "add_permit": "إضافة وثيقة",
+  "edit_permit": "تعديل الوثيقة",
+  "permit_type": "نوع الوثيقة",
+  "expiry_date": "تاريخ الانتهاء",
+  "file": "وثيقة",
+  "ACCREDITATION": "اعتماد",
+  "PERMIT": "تصريح",
+  "saved_successfully": "تم الحفظ بنجاح!",
+  "deleted_successfully": "تم الحذف بنجاح!",
+  "not_found": "لم يتم العثور على الوثيقة",
+  "organization": "المنظمة",
+  "stir": "الرقم الضريبي",
+  "documents": "الوثائق"
+}

@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { login, logout, me, register } from '@topcoder/store'
-import { IAuth, IUser } from '@topcoder/types'
+import { IAuth, ILoginResponse, IUser } from '@topcoder/types'
 
 const initialState: IAuth = {
   user: null,
@@ -19,8 +19,8 @@ const authSlice = createSlice({
         state.isLogging = true
         state.user = null
       })
-      .addCase(login.fulfilled, (state, action: PayloadAction<IUser>) => {
-        state.user = action.payload
+      .addCase(login.fulfilled, (state, action: PayloadAction<ILoginResponse>) => {
+        state.user = action.payload.user
         state.isLogging = false
       })
       .addCase(login.rejected, (state) => {
@@ -31,8 +31,8 @@ const authSlice = createSlice({
         state.isLogging = true
         state.user = null
       })
-      .addCase(register.fulfilled, (state, action: PayloadAction<IUser>) => {
-        state.user = action.payload
+      .addCase(register.fulfilled, (state, action: PayloadAction<ILoginResponse>) => {
+        state.user = action.payload.user
         state.isLogging = false
       })
       .addCase(register.rejected, (state) => {

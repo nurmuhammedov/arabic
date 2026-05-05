@@ -1,0 +1,17 @@
+{
+  "branches": "الفروع",
+  "branch_list": "قائمة الفروع",
+  "add_branch": "إضافة فرع",
+  "edit_branch": "تعديل الفرع",
+  "approve": "اعتماد",
+  "reject": "رفض",
+  "PENDING": "في الانتظار",
+  "APPROVED": "معتمد",
+  "REJECTED": "مرفوض",
+  "branch_created": "تم إرسال طلب إضافة الفرع!",
+  "branch_approved": "تم اعتماد الفرع بنجاح!",
+  "branch_rejected": "تم رفض الفرع!",
+  "branch_deleted": "تم حذف الفرع بنجاح!",
+  "select_organization": "اختر المنظمة",
+  "search_placeholder": "البحث باسم الفرع..."
+}

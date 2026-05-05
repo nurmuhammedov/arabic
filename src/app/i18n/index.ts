@@ -9,7 +9,8 @@ i18n
   .use(initReactI18next)
   .init({
     fallbackLng: 'uz',
-    supportedLngs: ['uz', 'uzb'],
+    supportedLngs: ['ar', 'uz', 'uzb'],
+    lng: 'uz',
     debug: false,
     interpolation: {
       escapeValue: false,
@@ -21,11 +22,9 @@ i18n
       'labels',
       'errors',
       'form',
-      'options',
       'users',
       'auth',
       'applications',
-      'dictionaries',
       'branches',
       'permits',
       'registers',
@@ -42,3 +41,5 @@ i18n
   .catch((error) => {
     console.error('Error initializing i18n:', error)
   })
+
+export default i18n

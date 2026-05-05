@@ -9,7 +9,6 @@ import {
 } from '@topcoder/components/ui/command'
 import { Popover, PopoverContent, PopoverTrigger } from '@topcoder/components/ui/popover'
 import { cn } from '@topcoder/lib'
-import { TypeAny } from '@topcoder/types'
 import { enGB, uz, uzCyrl } from 'date-fns/locale'
 import { Check, ChevronLeft } from 'lucide-react'
 import * as React from 'react'
@@ -130,8 +129,8 @@ function Calendar({
   const { i18n } = useTranslation()
   const currentLocale = i18n?.language === 'uz' ? uz : i18n?.language === 'uzb' ? uzCyrl : enGB
 
-  const selected = (props as TypeAny).selected
-  const defaultMonth = selected instanceof Date ? selected : selected?.from
+  const selected = (props as any).selected
+  const defaultMonth = selected instanceof Date ? selected : (selected as any)?.from
 
   return (
     <DayPicker

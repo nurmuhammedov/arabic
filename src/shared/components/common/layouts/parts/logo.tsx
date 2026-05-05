@@ -14,8 +14,8 @@ export function Logo() {
 
   return (
     <div className="flex flex-row items-center gap-x-3 overflow-hidden py-2">
-      <div className="relative size-8 min-w-8">
-        <LazyLoadImage alt="Logo" src={logoImg} effect="blur" className="size-full object-contain" />
+      <div className="relative size-8 min-w-8 overflow-hidden rounded-full">
+        <LazyLoadImage alt="Logo" src={logoImg} effect="blur" className="size-full object-cover" />
       </div>
       <div
         className={cn('flex flex-col opacity-100 transition-opacity duration-300', {

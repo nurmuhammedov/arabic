@@ -18,7 +18,7 @@ import {
 
 export const superadminMenu = [
   {
-    title: 'admin',
+    title: 'main',
     items: [
       {
         title: 'users',

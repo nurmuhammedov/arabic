@@ -9,6 +9,12 @@ export interface IUser {
   phoneNumber?: string
 }
 
+export interface ILoginResponse {
+  user: IUser
+  accessToken: string
+  refreshToken: string
+}
+
 export interface IAuth {
   user: IUser | null
   isLoading: boolean

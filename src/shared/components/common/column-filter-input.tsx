@@ -13,7 +13,6 @@ import {
   PopoverTrigger,
 } from '@topcoder/components'
 import { cn } from '@topcoder/lib'
-import { TypeAny } from '@topcoder/types'
 import { format, parseISO } from 'date-fns'
 import { Check, SearchIcon, X } from 'lucide-react'
 import { parseAsString, useQueryState, useQueryStates } from 'nuqs'
@@ -30,7 +29,7 @@ const TRIGGER_CONTENT_STYLE =
 
 interface FilterSubProps {
   filterKey: string
-  filterParams?: TypeAny
+  filterParams?: any
 }
 
 const SearchNumberFilter = ({ filterKey, filterParams }: FilterSubProps) => {
@@ -293,7 +292,7 @@ interface ColumnFilterInputProps<TData, TValue> {
 }
 
 export const ColumnFilterInput = <TData, TValue>({ column }: ColumnFilterInputProps<TData, TValue>) => {
-  const filterParams = column.meta?.filter
+  const filterParams = (column.meta as any)?.filter
 
   if (!filterParams?.key) return null
 

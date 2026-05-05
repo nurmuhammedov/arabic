@@ -1,18 +1,13 @@
 import { apiClient } from '@topcoder/api'
-import { IAxiosResponse, IUser, TypeAny } from '@topcoder/types'
+import { IAxiosResponse, ILoginResponse, IUser } from '@topcoder/types'
 
 export const AuthService = {
-  async login(credentials: TypeAny) {
+  async login(credentials: { username?: string; password?: string }) {
     const payload = {
       login: credentials.username,
       password: credentials.password,
     }
-    const response = await apiClient.post<IAxiosResponse<IUser>>('auth/login', payload)
-    return response.data.data
-  },
-
-  async oneIDLogin(credentials: TypeAny) {
-    const response = await apiClient.post<IAxiosResponse<IUser>>('auth/one-id', credentials)
+    const response = await apiClient.post<IAxiosResponse<ILoginResponse>>('auth/login', payload)
     return response.data.data
   },
 
@@ -21,13 +16,13 @@ export const AuthService = {
     return response.data.data
   },
 
-  async register(data: TypeAny) {
-    const response = await apiClient.post<IAxiosResponse<IUser>>('auth/register', data)
+  async register(data: Record<string, unknown>) {
+    const response = await apiClient.post<IAxiosResponse<ILoginResponse>>('auth/register', data)
     return response.data.data
   },
 
   async logout() {
-    const response = await apiClient.post<IAxiosResponse<TypeAny>>('auth/logout')
+    const response = await apiClient.post<IAxiosResponse<unknown>>('auth/logout')
     return response.data.message || 'success'
   },
 }

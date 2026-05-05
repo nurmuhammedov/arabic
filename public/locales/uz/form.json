@@ -4,7 +4,7 @@
   "nothing_found": "Hech narsa topilmadi!",
   "search": "Qidirish...",
   "enter": "Kiriting",
-  "show_password": "Parolni koʻrsatish",
+  "show_password": "Parolni ko‘rsatish",
   "hide_password": "Parolni yashirish",
   "uploading": "Yuklanmoqda",
   "invalid_file_format": "{{type}} fayl yuklash mumkin emas!",
@@ -14,5 +14,11 @@
   "attach_file": "Fayl biriktirish",
   "unnamed_file": "Fayl",
   "noting_found": "Hech narsa topilmadi!",
-  "file": "Hujjat"
+  "file": "Hujjat",
+  "full_name": "F.I.SH.",
+  "username": "Login",
+  "password": "Parol",
+  "email": "Elektron pochta",
+  "phone_number": "Telefon raqami",
+  "role": "Rol",
 }

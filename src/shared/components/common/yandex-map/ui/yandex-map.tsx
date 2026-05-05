@@ -1,5 +1,4 @@
 import { Map, Placemark, YMaps } from '@pbe/react-yandex-maps'
-import { TypeAny } from '@topcoder/types'
 import React, { useCallback, useEffect, useRef } from 'react'
 
 import { MAP_DEFAULTS } from '../model/yandex-map-config'
@@ -13,7 +12,7 @@ const YandexMap: React.FC<YandexMapProps> = ({
   height = MAP_DEFAULTS.height,
   center = MAP_DEFAULTS.center,
 }) => {
-  const mapRef = useRef<TypeAny>(null)
+  const mapRef = useRef<any>(null)
 
   const handleMapClick = useCallback(
     (e: { get: (key: string) => Coordinate }) => {
@@ -29,20 +28,20 @@ const YandexMap: React.FC<YandexMapProps> = ({
     [onMapClick, zoom]
   )
 
-  const handleApiLoad = (ymaps: TypeAny) => {
-    ymaps.borders.load('001', { lang: 'uz', quality: 1 }).then((geojson: TypeAny) => {
-      const regions = geojson.features.filter(
+  const handleApiLoad = (maps: any) => {
+    maps.borders.load('001', { lang: 'uz', quality: 1 }).then((json: any) => {
+      const regions = json.features.filter(
         (feature: { properties: { iso3166: string } }) => feature.properties.iso3166 === 'UZ'
       )
 
       if (regions.length > 0) {
-        const collection = new ymaps.GeoObjectCollection(null, {
+        const collection = new maps.GeoObjectCollection(null, {
           strokeColor: '#3b82f6',
           strokeWidth: 2,
           fillColor: 'rgba(59,130,246,0.02)',
           interactivityModel: 'default#transparent',
         })
-        collection.add(new ymaps.GeoObject(regions[0]))
+        collection.add(new maps.GeoObject(regions[0]))
         if (mapRef.current) {
           mapRef.current.geoObjects.add(collection)
         }

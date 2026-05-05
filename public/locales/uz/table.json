@@ -1,6 +1,8 @@
 {
   "name": "Nomi",
   "country": "Davlat",
+  "region": "Viloyat",
+  "district": "Tuman",
   "soato": "Soato",
   "branch_name": "Filial nomi",
   "latitude": "Kenglik",
@@ -10,5 +12,6 @@
   "organization_name": "Tashkilot nomi",
   "approve": "Tasdiqlash",
   "version": "Versiya",
-  "force_update": "Majburiy yangilash"
+  "force_update": "Majburiy yangilash",
+  "created_date": "Yaratilgan sanasi"
 }

@@ -36,10 +36,10 @@ apiClient.interceptors.response.use(
     const validationErrors: string = error.response?.data?.errors
 
     if (status === 401 && !isQrPath && !isLoginPath) {
-      window.location.replace('/auth/admin')
+      window.location.replace('/auth/login')
     }
 
-    if (requestUrl !== 'auth/me') {
+    if (requestUrl !== 'auth/profile') {
       if (status >= 400 && status < 600) {
         if (validationErrors && Object.keys(validationErrors).length > 0) {
           Object.values(validationErrors).forEach((errMessage: string | string[]) => {

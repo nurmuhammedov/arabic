@@ -1,7 +1,6 @@
-import { TypeAny } from '@topcoder/types'
 import { z } from 'zod'
 
-const customErrorMap: TypeAny = (issue: TypeAny, ctx: TypeAny) => {
+const customErrorMap: any = (issue: any, ctx: any) => {
   if (issue?.message && issue?.message !== ctx?.defaultError) {
     return { message: issue.message }
   }

@@ -5,7 +5,7 @@ import { Control, FieldValues, Path } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 
 interface FormInputProps<T extends FieldValues> extends Omit<React.ComponentProps<typeof Input>, 'name' | 'className'> {
-  control: Control<T>
+  control: Control<T, unknown>
   name: Path<T>
   label?: string
   icon?: React.ReactNode

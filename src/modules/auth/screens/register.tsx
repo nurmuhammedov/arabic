@@ -3,7 +3,7 @@ import { Button, Form, FormInput, FormPasswordInput, FormSelect } from '@topcode
 import { useActions, useDistricts, useRegions, useTypedSelector } from '@topcoder/hooks'
 import { cn } from '@topcoder/lib'
 import { registerSchema } from '@topcoder/modules/auth/schemas'
-import { InferType, TypeAny } from '@topcoder/types'
+import { IIDName, InferType } from '@topcoder/types'
 import { ComponentPropsWithoutRef, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
@@ -58,36 +58,46 @@ export function RegisterForm({ className }: ComponentPropsWithoutRef<'div'>) {
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="grid gap-4">
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-            <FormInput control={form.control} name="fullName" label="full_name" required />
+            <FormInput control={form.control} name="fullName" label={t('full_name', { ns: 'labels' })} required />
             <FormInput control={form.control} name="username" label="username" required />
           </div>
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <FormInput control={form.control} name="email" label="email" required />
-            <FormInput control={form.control} name="phoneNumber" label="phone" required />
+            <FormInput control={form.control} name="phoneNumber" label={t('phone_number', { ns: 'labels' })} required />
           </div>
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <FormSelect
               control={form.control}
               name="regionId"
-              label="region"
-              options={regions.map((r: TypeAny) => ({ id: r.id, name: r.name }))}
+              label={t('region_id', { ns: 'labels' })}
+              options={(regions as IIDName[]).map((r) => ({ id: r.id, name: r.name }))}
               required
             />
             <FormSelect
               control={form.control}
               name="districtId"
-              label="district"
-              options={districts.map((d: TypeAny) => ({ id: d.id, name: d.name }))}
+              label={t('district_id', { ns: 'labels' })}
+              options={(districts as IIDName[]).map((d) => ({ id: d.id, name: d.name }))}
               required
               disabled={!regionId}
             />
           </div>
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-            <FormPasswordInput control={form.control} name="password" label="password" required />
-            <FormPasswordInput control={form.control} name="confirmPassword" label="confirm_password" required />
+            <FormPasswordInput
+              control={form.control}
+              name="password"
+              label={t('password', { ns: 'labels' })}
+              required
+            />
+            <FormPasswordInput
+              control={form.control}
+              name="confirmPassword"
+              label={t('confirm_password', { ns: 'auth' })}
+              required
+            />
           </div>
 
           <Button type="submit" className="w-full" loading={isLogging}>

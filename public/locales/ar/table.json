@@ -1,0 +1,17 @@
+{
+  "name": "الاسم",
+  "country": "الدولة",
+  "region": "المنطقة",
+  "district": "المقاطعة",
+  "soato": "سواتو",
+  "branch_name": "اسم الفرع",
+  "latitude": "خط العرض",
+  "longitude": "خط الطول",
+  "status": "الحالة",
+  "tin": "الرقم الضريبي",
+  "organization_name": "اسم المنظمة",
+  "approve": "اعتماد",
+  "version": "الإصدار",
+  "force_update": "تحديث إجباري",
+  "created_date": "تاريخ الإنشاء"
+}

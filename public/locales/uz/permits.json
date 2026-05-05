@@ -1,7 +1,7 @@
 {
   "title": "Ruxsat etuvchi hujjatlar",
   "org_permits": "Tashkilotning ruxsat etuvchi hujjatlari",
-  "add_permit": "Hujjat qoʻshish",
+  "add_permit": "Hujjat qo‘shish",
   "edit_permit": "Hujjatni tahrirlash",
   "permit_type": "Hujjat turi",
   "expiry_date": "Amal qilish muddati",
@@ -9,7 +9,7 @@
   "ACCREDITATION": "Akkreditatsiya",
   "PERMIT": "Ruxsatnoma",
   "saved_successfully": "Muvaffaqiyatli saqlandi!",
-  "deleted_successfully": "Muvaffaqiyatli oʻchirildi!",
+  "deleted_successfully": "Muvaffaqiyatli o‘chirildi!",
   "not_found": "Hujjat topilmadi",
   "organization": "Tashkilot",
   "stir": "STIR",

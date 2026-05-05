@@ -1,25 +1,24 @@
 import { useDelete } from '@topcoder/api'
 import { DeleteConfirmationDialog } from '@topcoder/components'
 import { cn } from '@topcoder/lib'
-import { TypeAny } from '@topcoder/types'
 import { Eye, Pencil, Trash2 } from 'lucide-react'
 import { useState } from 'react'
 
-interface DataTableRowActionsProps {
-  cell: TypeAny
-  onEdit?: (data: TypeAny) => void
-  onView?: (data: TypeAny) => void
+interface DataTableRowActionsProps<T> {
+  cell: { row: { original: T } }
+  onEdit?: (data: T) => void
+  onView?: (data: T) => void
   deleteEndpoint?: string
   deleteQueryKey?: string | string[]
 }
 
-export function DataTableRowActions({
+export function DataTableRowActions<T extends { id?: string }>({
   cell,
   onEdit,
   onView,
   deleteEndpoint,
   deleteQueryKey = [],
-}: DataTableRowActionsProps) {
+}: DataTableRowActionsProps<T>) {
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false)
 
   const { mutate, isPending } = useDelete(deleteEndpoint || 'default-delete-endpoint/', deleteQueryKey, 'success')
@@ -29,7 +28,7 @@ export function DataTableRowActions({
   }
 
   const handleConfirmDelete = () => {
-    const id: TypeAny = cell?.row?.original?.id
+    const id = cell.row.original.id
 
     if (id) {
       mutate(id, {

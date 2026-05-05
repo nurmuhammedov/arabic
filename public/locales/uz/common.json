@@ -1,10 +1,11 @@
 {
-  "committee_name": "Sanoat, radiatsiya va yadro xavfsizligi qo‘mitasi",
+  "committee_name": "Arab tili ta’lim platformasi",
   "error_processing_request": "So‘rovni qayta ishlash jarayonida xatolik yuz berdi. Iltimos, birozdan so‘ng, qayta urinib ko‘ring.",
   "data_is_loading": "Ma’lumotlar yuklanmoqda...",
   "success": "Muvaffaqiyatli!",
   "uzb": "Ўзбекча",
   "uz": "O‘zbekcha",
+  "ar": "Arabcha",
   "admin": "Admin",
   "search": "Qidirish",
   "roles": "Rollar",
