@@ -22,7 +22,7 @@ export function Logo() {
           'hidden w-0 opacity-0': !sidebarOpen,
         })}
       >
-        <h6 className="text-xs font-medium leading-tight text-white">{t('committee_name')}</h6>
+        <h6 className="text-sm font-normal leading-tight text-white">{t('committee_name')}</h6>
       </div>
     </div>
   )

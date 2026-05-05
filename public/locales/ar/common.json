@@ -44,5 +44,8 @@
   "main_info": "معلومات أساسية",
   "print": "طباعة",
   "print_all": "طباعة الكل",
-  "print_selected": "طباعة المحدد"
+  "print_selected": "طباعة المحدد",
+  "no_image": "لا توجد صور",
+  "no_additional_files": "لا توجد ملفات إضافية",
+  "not_available": "غير متوفر"
 }

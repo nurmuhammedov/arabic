@@ -1,0 +1,24 @@
+{
+  "title": "القواميس",
+  "add_title": "إضافة كلمة جديدة",
+  "edit_title": "تعديل الكلمة",
+  "detail_title": "معلومات الكلمة",
+  "arabic": "اللغة العربية",
+  "transcription_ar": "النسخ العربي",
+  "uzbek": "اللغة الأوزبكية",
+  "russian": "اللغة الروسية",
+  "english": "اللغة الإنجليزية",
+  "transcription_en": "النسخ الإنجليزي",
+  "image": "الصور",
+  "files": "الملفات",
+  "status": "الحالة",
+  "statuses": {
+    "NEW": "جديد",
+    "LEARNING": "جاري التعلم",
+    "REVIEW": "مراجعة",
+    "LEARNED": "تم التعلم",
+    "ARCHIVED": "مؤرشف"
+  },
+  "detail": "تفاصيل",
+  "description": "وصف"
+}
