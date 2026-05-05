@@ -1,0 +1,24 @@
+{
+  "title": "Lug‘atlar",
+  "add_title": "Yangi so‘z qo‘shish",
+  "edit_title": "So‘zni tahrirlash",
+  "detail_title": "So‘z haqida ma’lumot",
+  "arabic": "Arabchasi",
+  "transcription_ar": "Arabcha transkripsiya",
+  "uzbek": "O‘zbekchasi",
+  "russian": "Ruschasi",
+  "english": "Inglizchasi",
+  "transcription_en": "Inglizcha transkripsiya",
+  "image": "Rasmlar",
+  "files": "Fayllar",
+  "status": "Holati",
+  "statuses": {
+    "NEW": "Yangi",
+    "LEARNING": "O‘rganilmoqda",
+    "REVIEW": "Takrorlash",
+    "LEARNED": "Yodlandi",
+    "ARCHIVED": "Arxivlangan"
+  },
+  "detail": "Tafsilotlar",
+  "description": "Tavsif"
+}

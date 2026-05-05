@@ -44,5 +44,15 @@
   "version": "Versiya",
   "force_update": "Ilovani majburiy yangilash",
   "confirm_password": "Parolni tasdiqlang",
-  "change_password": "Parolni o‘zgartirish"
+  "change_password": "Parolni o‘zgartirish",
+  "arabic": "Arabchasi",
+  "transcription_ar": "Arabcha transkripsiya",
+  "uzbek": "O‘zbekchasi",
+  "russian": "Ruschasi",
+  "english": "Inglizchasi",
+  "transcription_en": "Inglizcha transkripsiya",
+  "status": "Holati",
+  "image": "Rasm",
+  "files": "Fayllar",
+  "description": "Tavsif"
 }

@@ -14,7 +14,7 @@ export default function UsersTableScreen() {
   const navigate = useNavigate()
 
   const [page] = useQueryState('page', parseAsInteger.withDefault(1))
-  const [size] = useQueryState('size', parseAsInteger.withDefault(10))
+  const [size] = useQueryState('size', parseAsInteger.withDefault(20))
   const [search] = useQueryState('search', parseAsString.withDefault(''))
 
   const { data, isLoading, totalPages, totalElements } = usePaginatedData<IUser>('users', 'users', {

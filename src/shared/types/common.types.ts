@@ -23,4 +23,14 @@ export interface IIDName {
   name: string
 }
 
+export interface IFile {
+  id: string
+  name: string
+  path: string
+  url?: string
+  type?: string
+  size: number
+  originalName?: string
+}
+
 export type InferType<T extends z.ZodTypeAny> = z.infer<T>

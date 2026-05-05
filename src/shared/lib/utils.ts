@@ -12,7 +12,7 @@ export function cn(...inputs: ClassValue[]) {
 export const routeByRole = (user: IUser | null | undefined): string => {
   if (!user) return '/login'
   if (user.role === UserRole.ADMIN) return '/superadmin/users'
-  if (user.role === UserRole.STUDENT) return '/student/dashboard'
+  if (user.role === UserRole.STUDENT) return '/student/vocabulary'
 
   return '/not-found'
 }

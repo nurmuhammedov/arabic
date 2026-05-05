@@ -13,7 +13,7 @@ export const userBaseSchema = z.object({
   confirmPassword: z.string().trim().min(6, 'invalid_value'),
 })
 
-export interface UserSchemaType extends z.infer<typeof userBaseSchema> {}
+export type UserSchemaType = z.infer<typeof userBaseSchema>
 
 export const userSchema = userBaseSchema.refine((data) => data.password === data.confirmPassword, {
   message: 'invalid_value',
@@ -33,7 +33,7 @@ export const userEditBaseSchema = z.object({
   confirmPassword: z.string().trim().optional(),
 })
 
-export interface UserEditSchemaType extends z.infer<typeof userEditBaseSchema> {}
+export type UserEditSchemaType = z.infer<typeof userEditBaseSchema>
 
 export const userEditSchema = userEditBaseSchema
   .refine(

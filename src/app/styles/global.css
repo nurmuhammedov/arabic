@@ -90,6 +90,27 @@
   .scrollbar-x-hidden {
     height: 0;
   }
+
+  .font-arabic {
+    font-family: 'Golos Text', 'Scheherazade New', 'Amiri', serif;
+    direction: rtl;
+    line-height: 1.8;
+    font-feature-settings:
+      'cv04' on,
+      'cv03' on,
+      'cv01' on;
+  }
+
+  [lang='ar'] {
+    font-family: 'Golos Text', 'Scheherazade New', 'Amiri', serif;
+    direction: rtl;
+  }
+
+  input.font-arabic,
+  textarea.font-arabic {
+    font-size: 1.25rem;
+    line-height: 2;
+  }
 }
 
 /*---break---*/

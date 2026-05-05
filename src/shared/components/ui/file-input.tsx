@@ -452,7 +452,7 @@ const FileInputComponent = ({
 
   return (
     <div className={cn('file-upload-wrapper w-full select-none', className)}>
-      {(multiple || fileList.length === 0) && (
+      {!disabled && (multiple || fileList.length === 0) && (
         <div
           onClick={openFileDialog}
           className={cn(

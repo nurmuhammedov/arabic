@@ -15,7 +15,7 @@ import {
 import { cn } from '@topcoder/lib'
 import { format, parseISO } from 'date-fns'
 import { Check, SearchIcon, X } from 'lucide-react'
-import { parseAsString, useQueryState, useQueryStates } from 'nuqs'
+import { parseAsInteger, parseAsString, useQueryState, useQueryStates } from 'nuqs'
 import { useEffect, useMemo, useState } from 'react'
 import { DateRange } from 'react-day-picker'
 import { useTranslation } from 'react-i18next'
@@ -36,6 +36,7 @@ const SearchNumberFilter = ({ filterKey, filterParams }: FilterSubProps) => {
   const { type: filterType, maxLength: filterMaxLength = 30 } = filterParams
 
   const [queryValue, setQueryValue] = useQueryState(filterKey, parseAsString.withDefault(''))
+  const [, setPage] = useQueryState('page', parseAsInteger.withDefault(1))
 
   const [value, setValue] = useState(queryValue ?? '')
   const [prevQuery, setPrevQuery] = useState(queryValue ?? '')
@@ -49,11 +50,12 @@ const SearchNumberFilter = ({ filterKey, filterParams }: FilterSubProps) => {
     const handler = setTimeout(() => {
       if (value !== (queryValue ?? '')) {
         void setQueryValue(value || null)
+        void setPage(null)
       }
     }, 500)
 
     return () => clearTimeout(handler)
-  }, [value, queryValue, setQueryValue])
+  }, [value, queryValue, setQueryValue, setPage])
 
   const handleInputChange = (val: string) => {
     if (filterType === 'number') {
@@ -74,7 +76,8 @@ const SearchNumberFilter = ({ filterKey, filterParams }: FilterSubProps) => {
         onChange={(e) => handleInputChange(e.target.value)}
         className={cn(
           'h-full w-full border-none pl-8 pr-6 text-xs font-normal shadow-none outline-none focus-visible:ring-0',
-          'bg-white'
+          'bg-white',
+          filterKey === 'arabic' && 'font-arabic text-lg'
         )}
       />
       {value && (
@@ -83,6 +86,7 @@ const SearchNumberFilter = ({ filterKey, filterParams }: FilterSubProps) => {
             e.stopPropagation()
             setValue('')
             void setQueryValue(null)
+            void setPage(null)
           }}
           className={CLEAR_BUTTON_STYLE}
         >
@@ -97,6 +101,7 @@ const SelectFilter = ({ filterKey, filterParams }: FilterSubProps) => {
   const { t } = useTranslation(['form'])
   const { options: filterOptions } = filterParams
   const [queryValue, setQueryValue] = useQueryState(filterKey, parseAsString.withDefault(''))
+  const [, setPage] = useQueryState('page', parseAsInteger.withDefault(1))
   const [open, setOpen] = useState(false)
 
   const selectedOptionLabel = useMemo(() => {
@@ -133,6 +138,7 @@ const SelectFilter = ({ filterKey, filterParams }: FilterSubProps) => {
                     value={option.name}
                     onSelect={() => {
                       void setQueryValue(option.id.toString())
+                      void setPage(null)
                       setOpen(false)
                     }}
                   >
@@ -156,6 +162,7 @@ const SelectFilter = ({ filterKey, filterParams }: FilterSubProps) => {
           onClick={(e) => {
             e.stopPropagation()
             void setQueryValue(null)
+            void setPage(null)
           }}
           className={CLEAR_BUTTON_STYLE}
         >
@@ -168,6 +175,7 @@ const SelectFilter = ({ filterKey, filterParams }: FilterSubProps) => {
 
 const DateFilter = ({ filterKey }: FilterSubProps) => {
   const [queryValue, setQueryValue] = useQueryState(filterKey, parseAsString.withDefault(''))
+  const [, setPage] = useQueryState('page', parseAsInteger.withDefault(1))
   const dateValue = queryValue ? new Date(queryValue) : undefined
 
   return (
@@ -188,6 +196,7 @@ const DateFilter = ({ filterKey }: FilterSubProps) => {
             onSelect={(date) => {
               const formatted = date ? format(date, 'yyyy-MM-dd') : null
               void setQueryValue(formatted)
+              void setPage(null)
             }}
           />
         </PopoverContent>
@@ -197,6 +206,7 @@ const DateFilter = ({ filterKey }: FilterSubProps) => {
           onClick={(e) => {
             e.stopPropagation()
             void setQueryValue(null)
+            void setPage(null)
           }}
           className={CLEAR_BUTTON_STYLE}
         >
@@ -214,6 +224,7 @@ const DateRangeFilter = ({ filterParams }: FilterSubProps) => {
     [filterRangeKeys[0]]: parseAsString.withDefault(''),
     [filterRangeKeys[1]]: parseAsString.withDefault(''),
   })
+  const [, setPage] = useQueryState('page', parseAsInteger.withDefault(1))
 
   const startDateQuery = dates[filterRangeKeys[0]]
   const endDateQuery = dates[filterRangeKeys[1]]
@@ -235,6 +246,7 @@ const DateRangeFilter = ({ filterParams }: FilterSubProps) => {
         [filterRangeKeys[0]]: format(range.from, 'yyyy-MM-dd'),
         [filterRangeKeys[1]]: range.to ? format(range.to, 'yyyy-MM-dd') : null,
       })
+      void setPage(null)
     } else {
       void setDates({
         [filterRangeKeys[0]]: null,
@@ -277,6 +289,7 @@ const DateRangeFilter = ({ filterParams }: FilterSubProps) => {
               [filterRangeKeys[0]]: null,
               [filterRangeKeys[1]]: null,
             })
+            void setPage(null)
           }}
           className={CLEAR_BUTTON_STYLE}
         >
