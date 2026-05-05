@@ -13,5 +13,6 @@
   "approve": "Tasdiqlash",
   "version": "Versiya",
   "force_update": "Majburiy yangilash",
-  "created_date": "Yaratilgan sanasi"
+  "created_date": "Yaratilgan sanasi",
+  "updated_date": "Tahrirlangan sanasi"
 }

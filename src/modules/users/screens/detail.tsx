@@ -47,6 +47,10 @@ export default function UsersDetailScreen() {
               title={t('created_date', { ns: 'table' })}
               value={user.createdAt ? format(new Date(user.createdAt), 'dd.MM.yyyy HH:mm') : '-'}
             />
+            <DetailRow
+              title={t('updated_date', { ns: 'table' })}
+              value={user.updatedAt ? format(new Date(user.updatedAt), 'dd.MM.yyyy HH:mm') : '-'}
+            />
           </div>
         </DetailCardAccordion.Item>
       </DetailCardAccordion>

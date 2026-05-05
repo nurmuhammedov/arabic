@@ -42,6 +42,10 @@ export default function DistrictsDetailScreen() {
               title={t('created_date', { ns: 'table' })}
               value={district.createdAt ? format(new Date(district.createdAt), 'dd.MM.yyyy HH:mm') : '-'}
             />
+            <DetailRow
+              title={t('updated_date', { ns: 'table' })}
+              value={district.updatedAt ? format(new Date(district.updatedAt), 'dd.MM.yyyy HH:mm') : '-'}
+            />
           </div>
         </DetailCardAccordion.Item>
       </DetailCardAccordion>
