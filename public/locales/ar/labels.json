@@ -44,5 +44,15 @@
   "version": "الإصدار",
   "force_update": "تحديث إجباري للتطبيق",
   "confirm_password": "تأكيد كلمة المرور",
-  "change_password": "تغيير كلمة المرور"
+  "change_password": "تغيير كلمة المرور",
+  "arabic": "اللغة العربية",
+  "transcription_ar": "النسخ العربي",
+  "uzbek": "اللغة الأوزبكية",
+  "russian": "اللغة الروسية",
+  "english": "اللغة الإنجليزية",
+  "transcription_en": "النسخ الإنجليزي",
+  "status": "الحالة",
+  "image": "الصور",
+  "files": "الملفات",
+  "description": "وصف"
 }

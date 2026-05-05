@@ -4,6 +4,7 @@ import { useTypedSelector } from '@topcoder/hooks'
 import { useTranslation } from 'react-i18next'
 import { useLocation } from 'react-router-dom'
 
+import { LanguageSelector } from './language-selector'
 import { UserDropdown } from './user-dropdown'
 
 export function Header() {
@@ -49,6 +50,7 @@ export function Header() {
         {title && <h1 className="text-base font-medium leading-none text-foreground">{t(title)}</h1>}
       </div>
       <div className="ml-auto flex items-center gap-4">
+        <LanguageSelector />
         <UserDropdown />
       </div>
     </header>
