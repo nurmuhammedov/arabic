@@ -21,5 +21,6 @@
   "outside_uzbekistan": "Joylashuv O‘zbekiston Respublikasi hududidan tashqarida",
   "invalid_coords_format": "Koordinatalar orasida vergul bo‘lishi kerak (masalan: 41.311081, 69.240562)",
   "invalid_format": "Noto‘g‘ri format",
-  "set_location": "Joyni belgilash"
+  "set_location": "Joyni belgilash",
+  "only_latin_characters_allowed": "Faqat lotin harflari bilan yozish mumkin!"
 }

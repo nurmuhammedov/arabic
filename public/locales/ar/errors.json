@@ -21,5 +21,6 @@
   "outside_uzbekistan": "الموقع خارج أراضي جمهورية أوزبكستان",
   "invalid_coords_format": "يجب أن تكون هناك فاصلة بين الإحداثيات (مثلاً: 41.311081, 69.240562)",
   "invalid_format": "تنسيق غير صحيح",
-  "set_location": "تحديد الموقع"
+  "set_location": "تحديد الموقع",
+  "only_latin_characters_allowed": "يُسمح فقط بالأحرف اللاتينية!"
 }

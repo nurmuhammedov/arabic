@@ -47,5 +47,12 @@
   "print_selected": "طباعة المحدد",
   "no_image": "لا توجد صور",
   "no_additional_files": "لا توجد ملفات إضافية",
-  "not_available": "غير متوفر"
+  "not_available": "غير متوفر",
+  "arabic_virtual_keyboard": "لوحة المفاتيح العربية الافتراضية",
+  "type_here_to_convert": "اكتب هنا للتحويل...",
+  "character_map": "خريطة الأحرف",
+  "combinations": "التركيبات",
+  "special_keys": "المفاتيح الخاصة",
+  "copy": "نسخ",
+  "copied_to_clipboard": "تم النسخ إلى الحافظة!"
 }

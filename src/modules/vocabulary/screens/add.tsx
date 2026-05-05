@@ -57,6 +57,7 @@ export default function VocabularyAddScreen() {
               name="arabic"
               label="arabic"
               required
+              isArabic
               className="font-arabic text-right text-lg"
             />
             <FormInput control={form.control} name="transcriptionAr" label="transcription_ar" />

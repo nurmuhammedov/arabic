@@ -47,5 +47,12 @@
   "print_selected": "Tanlanganlarni chop etish",
   "no_image": "Rasmlar mavjud emas",
   "no_additional_files": "Qo‘shimcha fayllar mavjud emas",
-  "not_available": "Mavjud emas"
+  "not_available": "Mavjud emas",
+  "arabic_virtual_keyboard": "Arabcha virtual klaviatura",
+  "type_here_to_convert": "O‘girish uchun bu yerga yozing...",
+  "character_map": "Harflar xaritasi",
+  "combinations": "Kombinatsiyalar",
+  "special_keys": "Maxsus tugmalar",
+  "copy": "Nusxalash",
+  "copied_to_clipboard": "Xotiraga nusxalandi!"
 }
