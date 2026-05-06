@@ -1,15 +1,13 @@
 export const ARABIC_MAP: Record<string, string> = {
-  // Harakatlar va Cho'ziq unlilar (Double typing logic)
-  a: 'َ', // Fatha
-  aa: 'ا', // Alif
-  i: 'ِ', // Kasra
-  ii: 'ي', // Yo
-  ee: 'ي', // Yo muqobil
-  u: 'ُ', // Damma
-  uu: 'و', // Vov
-  oo: 'و', // Vov muqobil
+  a: 'َ',
+  aa: 'ا',
+  i: 'ِ',
+  ii: 'ي',
+  ee: 'ي',
+  u: 'ُ',
+  uu: 'و',
+  oo: 'و',
 
-  // Oddiy undoshlar
   b: 'ب',
   t: 'ت',
   j: 'ج',
@@ -28,14 +26,12 @@ export const ARABIC_MAP: Record<string, string> = {
   v: 'و',
   y: 'ي',
 
-  // Qo'sh harflar (Combinations)
   sh: 'ش',
   kh: 'خ',
   gh: 'غ',
   th: 'ث',
   dh: 'ذ',
 
-  // Qalin harflar (Shift + Harf)
   H: 'ح',
   S: 'ص',
   D: 'ض',
@@ -44,26 +40,20 @@ export const ARABIC_MAP: Record<string, string> = {
   A: 'أ',
   I: 'إ',
 
-  // Maxsus belgilar
-  p: 'ة', // Ta marbuta
-  e: 'ء', // Hamza
-  o: 'ْ', // Sukun (User request)
-  x: 'خ', // Xo muqobil
+  p: 'ة',
+  e: 'ء',
+  o: 'ْ',
+  x: 'خ',
   c: 'ع',
   "'": 'ع',
 
-  // Raqamli harakatlar va belgilar
-  '4': 'ّ', // Shadda
-  '5': 'ْ', // Sukun
-  '6': 'ً', // Tanvin fatha
-  '7': 'ٌ', // Tanvin damma
-  '8': 'ٍ', // Tanvin kasra
+  '4': 'ّ',
+  '5': 'ْ',
+  '6': 'ً',
+  '7': 'ٌ',
+  '8': 'ٍ',
 }
 
-/**
- * Lotin harflarini arabchaga o'giruvchi funksiya.
- * Ikki harfli kombinatsiyalarni (sh, aa, kh) birinchi bo'lib tekshiradi.
- */
 export const parseArabicText = (text: string): string => {
   let result = ''
   let i = 0
@@ -71,15 +61,43 @@ export const parseArabicText = (text: string): string => {
   while (i < text.length) {
     const twoChars = text.substring(i, i + 2)
     const oneChar = text.substring(i, i + 1)
+    const oneCharLower = oneChar.toLowerCase()
 
     if (ARABIC_MAP[twoChars]) {
       result += ARABIC_MAP[twoChars]
       i += 2
-    } else if (ARABIC_MAP[oneChar]) {
+      continue
+    }
+
+    const twoCharsLower = twoChars.toLowerCase()
+    if (ARABIC_MAP[twoCharsLower]) {
+      result += ARABIC_MAP[twoCharsLower]
+      i += 2
+      continue
+    }
+
+    if (
+      twoChars.length === 2 &&
+      twoChars[0].toLowerCase() === twoChars[1].toLowerCase() &&
+      (ARABIC_MAP[oneChar] || ARABIC_MAP[oneCharLower]) &&
+      !['a', 'i', 'u', 'o', 'e'].includes(oneCharLower)
+    ) {
+      const char = ARABIC_MAP[oneChar] || ARABIC_MAP[oneCharLower]
+      result += char + 'ّ'
+      i += 2
+      continue
+    }
+
+    if (ARABIC_MAP[oneChar]) {
       result += ARABIC_MAP[oneChar]
       i += 1
+    } else if (ARABIC_MAP[oneCharLower]) {
+      result += ARABIC_MAP[oneCharLower]
+      i += 1
+    } else if (oneChar === ' ') {
+      result += ' '
+      i += 1
     } else {
-      result += oneChar
       i += 1
     }
   }
@@ -87,9 +105,6 @@ export const parseArabicText = (text: string): string => {
   return result
 }
 
-/**
- * Faqat Lotin harflari, raqamlar va umumiy belgilarni tekshirish uchun.
- */
 export const isLatin = (char: string): boolean => {
   return /^[a-zA-Z0-9\s'"`~!@#$%^&*()_\-+=<>,.?/:;\\|{}[\]]*$/.test(char)
 }

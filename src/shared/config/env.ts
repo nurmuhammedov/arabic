@@ -2,11 +2,14 @@ const getBaseUrl = () => {
   const envUrl = import.meta.env.VITE_BASE_URL
   if (typeof window !== 'undefined') {
     const hostname = window.location.hostname
-    if (hostname !== 'localhost' && hostname !== '127.0.0.1' && envUrl?.includes('localhost')) {
-      return `http://${hostname}:8000`
+    if (hostname !== 'localhost' && hostname !== '127.0.0.1') {
+      return `http://${hostname}:8080`
+    }
+    if (hostname === 'localhost' || hostname === '127.0.0.1') {
+      return 'http://localhost:8080'
     }
   }
-  return envUrl || 'http://localhost:8000'
+  return envUrl || 'http://localhost:8080'
 }
 
 export const BASE_URL: string = getBaseUrl()

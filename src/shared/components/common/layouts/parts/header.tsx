@@ -1,6 +1,9 @@
-import { Separator, SidebarTrigger } from '@topcoder/components'
+import { Button, Separator, SidebarTrigger } from '@topcoder/components'
+import { ArabicKeyboardModal } from '@topcoder/components/common/arabic-keyboard-modal'
 import { NAVIGATIONS } from '@topcoder/config'
 import { useTypedSelector } from '@topcoder/hooks'
+import { Keyboard } from 'lucide-react'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useLocation } from 'react-router-dom'
 
@@ -8,9 +11,10 @@ import { LanguageSelector } from './language-selector'
 import { UserDropdown } from './user-dropdown'
 
 export function Header() {
-  const { t } = useTranslation('sidebar')
+  const { t } = useTranslation(['sidebar', 'common'])
   const { pathname } = useLocation()
   const { user } = useTypedSelector((state) => state.auth)
+  const [isKeyboardOpen, setIsKeyboardOpen] = useState(false)
 
   const findTitle = () => {
     if (!user || !user.role) return ''
@@ -50,9 +54,19 @@ export function Header() {
         {title && <h1 className="text-base font-medium leading-none text-foreground">{t(title)}</h1>}
       </div>
       <div className="ml-auto flex items-center gap-4">
+        <Button
+          variant="ghost"
+          size="icon"
+          className="h-9 w-9 text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+          onClick={() => setIsKeyboardOpen(true)}
+          title={t('arabic_virtual_keyboard', { ns: 'common' })}
+        >
+          <Keyboard className="h-6 w-6" />
+        </Button>
         <LanguageSelector />
         <UserDropdown />
       </div>
+      <ArabicKeyboardModal open={isKeyboardOpen} onOpenChange={setIsKeyboardOpen} />
     </header>
   )
 }
