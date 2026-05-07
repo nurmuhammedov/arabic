@@ -54,5 +54,6 @@
   "status": "الحالة",
   "image": "الصور",
   "files": "الملفات",
-  "description": "وصف"
+  "description": "وصف",
+  "text": "نص"
 }

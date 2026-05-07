@@ -1,6 +1,9 @@
 import '@topcoder/i18n'
 import '@topcoder/styles/global.css'
 import '@topcoder/config/zod'
+import { registerSW } from 'virtual:pwa-register'
+
+registerSW({ immediate: true })
 
 import { QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'

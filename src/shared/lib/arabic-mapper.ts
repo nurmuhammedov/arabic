@@ -21,7 +21,7 @@ export const ARABIC_MAP: Record<string, string> = {
   l: 'ل',
   m: 'م',
   n: 'ن',
-  h: 'ه',
+  h: 'ح',
   w: 'و',
   v: 'و',
   y: 'ي',
@@ -32,26 +32,51 @@ export const ARABIC_MAP: Record<string, string> = {
   th: 'ث',
   dh: 'ذ',
 
-  H: 'ح',
-  S: 'ص',
+  'سh': 'ش',
+  'كh': 'خ',
+  'تh': 'ث',
+  'دh': 'ذ',
+  'غh': 'غ',
+  'حh': 'حه',
+  'َa': 'َا',
+  'ِi': 'ِي',
+  'ُu': 'ُو',
+  'َo': 'َا',
+  'ِo': 'ِي',
+  'ُo': 'ُو',
+  'ءe': 'ي',
+  g: 'غ',
+
+  H: 'ه',
   D: 'ض',
   T: 'ط',
   Z: 'ظ',
   A: 'أ',
+  U: 'أ',
   I: 'إ',
+  Y: 'ى',
+  E: 'ئ',
+  W: 'ؤ',
+  M: 'آ',
+  L: 'لا',
 
   p: 'ة',
   e: 'ء',
-  o: 'ْ',
+  o: 'َ',
   x: 'خ',
-  c: 'ع',
+  c: 'ص',
   "'": 'ع',
 
+  '1': 'ً',
+  '2': 'ٌ',
+  '3': 'ٍ',
   '4': 'ّ',
-  '5': 'ْ',
-  '6': 'ً',
-  '7': 'ٌ',
-  '8': 'ٍ',
+  '0': 'ْ',
+  '5': 'ٰ',
+  '6': 'ٔ',
+  '7': 'ٕ',
+  '8': 'ٱ',
+  '9': 'ـ',
 }
 
 export const parseArabicText = (text: string): string => {
@@ -76,15 +101,34 @@ export const parseArabicText = (text: string): string => {
       continue
     }
 
-    if (
+    const isDoubleLatin =
       twoChars.length === 2 &&
       twoChars[0].toLowerCase() === twoChars[1].toLowerCase() &&
       (ARABIC_MAP[oneChar] || ARABIC_MAP[oneCharLower]) &&
       !['a', 'i', 'u', 'o', 'e'].includes(oneCharLower)
-    ) {
+
+    const isArabicLatinShadda =
+      twoChars.length === 2 &&
+      ARABIC_MAP[twoChars[1].toLowerCase()] === twoChars[0] &&
+      !['a', 'i', 'u', 'o', 'e'].includes(twoChars[1].toLowerCase())
+
+    if (isDoubleLatin) {
       const char = ARABIC_MAP[oneChar] || ARABIC_MAP[oneCharLower]
       result += char + 'ّ'
       i += 2
+      continue
+    }
+
+    if (isArabicLatinShadda) {
+      result += twoChars[0] + 'ّ'
+      i += 2
+      continue
+    }
+
+    const isArabicOrMark = /[\u0600-\u06FF\s]/.test(oneChar)
+    if (isArabicOrMark) {
+      result += oneChar
+      i += 1
       continue
     }
 
