@@ -1,6 +1,7 @@
 import '@topcoder/i18n'
 import '@topcoder/styles/global.css'
 import '@topcoder/config/zod'
+
 import { registerSW } from 'virtual:pwa-register'
 
 registerSW({ immediate: true })

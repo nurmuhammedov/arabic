@@ -89,9 +89,7 @@ export const ArabicKeyboardModal: React.FC<ArabicKeyboardModalProps> = ({ open, 
           </div>
 
           <div className="space-y-1.5 px-1">
-            <label className="text-sm font-medium">
-              {t('text', { ns: 'labels' })}
-            </label>
+            <label className="text-sm font-medium">{t('text', { ns: 'labels' })}</label>
             <Input
               autoFocus
               className="h-10 rounded-md border shadow-sm focus-visible:ring-primary"
@@ -106,9 +104,7 @@ export const ArabicKeyboardModal: React.FC<ArabicKeyboardModalProps> = ({ open, 
                 <span className="flex size-6 items-center justify-center rounded-md bg-primary text-xs font-bold text-primary-foreground">
                   1
                 </span>
-                <h4 className="text-sm font-bold uppercase tracking-wider">
-                  {t('character_map', { ns: 'common' })}
-                </h4>
+                <h4 className="text-sm font-bold uppercase tracking-wider">{t('character_map', { ns: 'common' })}</h4>
               </div>
               <div className="flex flex-col items-center gap-1.5 sm:gap-2">
                 {QWERTY_ROWS.map((row, rowIndex) => (
@@ -121,16 +117,14 @@ export const ArabicKeyboardModal: React.FC<ArabicKeyboardModalProps> = ({ open, 
                           className={cn(
                             'group flex h-14 w-9 flex-col items-center justify-center rounded-lg border transition-all sm:h-16 sm:w-14',
                             arabic
-                              ? 'bg-background hover:-translate-y-0.5 hover:border-primary hover:shadow-md cursor-pointer'
-                              : 'bg-muted/40 opacity-40 cursor-default'
+                              ? 'cursor-pointer bg-background hover:-translate-y-0.5 hover:border-primary hover:shadow-md'
+                              : 'cursor-default bg-muted/40 opacity-40'
                           )}
                         >
                           <span className="text-[11px] font-medium text-muted-foreground group-hover:text-primary">
                             {key}
                           </span>
-                          <span className="font-arabic text-lg font-bold leading-none sm:text-2xl">
-                            {arabic || ''}
-                          </span>
+                          <span className="font-arabic text-lg font-bold leading-none sm:text-2xl">{arabic || ''}</span>
                         </div>
                       )
                     })}
@@ -144,9 +138,7 @@ export const ArabicKeyboardModal: React.FC<ArabicKeyboardModalProps> = ({ open, 
                 <span className="flex size-6 items-center justify-center rounded-md bg-primary text-xs font-bold text-primary-foreground">
                   2
                 </span>
-                <h4 className="text-sm font-bold uppercase tracking-wider">
-                  {t('combinations', { ns: 'common' })}
-                </h4>
+                <h4 className="text-sm font-bold uppercase tracking-wider">{t('combinations', { ns: 'common' })}</h4>
               </div>
               <div className="flex flex-wrap gap-1.5">
                 {[
@@ -174,9 +166,7 @@ export const ArabicKeyboardModal: React.FC<ArabicKeyboardModalProps> = ({ open, 
                 <span className="flex size-6 items-center justify-center rounded-md bg-primary text-xs font-bold text-primary-foreground">
                   3
                 </span>
-                <h4 className="text-sm font-bold uppercase tracking-wider">
-                  {t('special_keys', { ns: 'common' })}
-                </h4>
+                <h4 className="text-sm font-bold uppercase tracking-wider">{t('special_keys', { ns: 'common' })}</h4>
               </div>
 
               <div className="space-y-3">
@@ -290,14 +280,14 @@ export const ArabicKeyboardModal: React.FC<ArabicKeyboardModalProps> = ({ open, 
 
                 <div className="rounded-lg border border-dashed border-primary/20 bg-primary/5 px-3 py-2">
                   <p className="text-xs text-muted-foreground">
-                    <strong className="text-primary">Maslahat:</strong> Harflarni ajratish uchun (-) ishlating.
-                    Masalan: <code className="rounded bg-muted px-1 font-bold">t-h</code> ➤ <span className="font-arabic font-bold">ته</span>
+                    <strong className="text-primary">Maslahat:</strong> Harflarni ajratish uchun (-) ishlating. Masalan:{' '}
+                    <code className="rounded bg-muted px-1 font-bold">t-h</code> ➤{' '}
+                    <span className="font-arabic font-bold">ته</span>
                   </p>
                 </div>
               </div>
             </div>
           </div>
-
         </div>
       </DialogContent>
     </Dialog>
