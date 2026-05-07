@@ -3,6 +3,7 @@ const getBaseUrl = () => {
 }
 
 export const BASE_URL: string = getBaseUrl()
+
 export const IS_DEV: boolean = import.meta.env.VITE_IS_DEV === 'true' || false
 export const CLIENT_ID: string = import.meta.env.VITE_CLIENT_ID || 'client_id'
 export const CLIENT_SECRET: string = import.meta.env.VITE_CLIENT_SECRET || 'client_secret'
