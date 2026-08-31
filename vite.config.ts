@@ -11,7 +11,16 @@ const isAnalyze = process.env.ANALYZE === 'true'
  * on one host, so the browser cannot reach the API on a port of its own.
  */
 const API_PROXY = {
-  '/api': { target: 'http://localhost:8080', changeOrigin: true },
+  '/api': {
+    target: 'http://localhost:8080',
+    changeOrigin: true,
+    configure: (proxy: { on: (event: string, handler: () => void) => void }) => {
+      // A client that hangs up mid-request makes the proxy emit an error event
+      // with nothing listening, and an unhandled error event takes the whole
+      // server down. Through a tunnel that happens routinely.
+      proxy.on('error', () => undefined)
+    },
+  },
 }
 
 /** Tunnels hand out a fresh subdomain each run, so the whole domain is allowed. */
