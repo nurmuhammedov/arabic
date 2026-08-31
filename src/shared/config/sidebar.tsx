@@ -1,5 +1,5 @@
 import { UserRole } from '@topcoder/constants'
-import React from 'react'
+import type React from 'react'
 
 import { adminMenu } from './menus/admin'
 import { studentMenu } from './menus/student'

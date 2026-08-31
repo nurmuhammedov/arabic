@@ -1,5 +1,5 @@
 import { DeviceType, UserRole } from '@topcoder/constants'
-import { IUser } from '@topcoder/types'
+import type { IUser } from '@topcoder/types'
 import { type ClassValue, clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 
@@ -10,9 +10,9 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export const routeByRole = (user: IUser | null | undefined): string => {
-  if (!user) return '/login'
+  if (!user) return '/auth/login'
   if (user.role === UserRole.ADMIN) return '/superadmin/users'
-  if (user.role === UserRole.STUDENT) return '/student/vocabulary'
+  if (user.role === UserRole.STUDENT) return '/student/study'
 
   return '/not-found'
 }

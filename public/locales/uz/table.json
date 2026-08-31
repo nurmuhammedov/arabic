@@ -1,18 +1,6 @@
 {
   "name": "Nomi",
-  "country": "Davlat",
-  "region": "Viloyat",
-  "district": "Tuman",
-  "soato": "Soato",
-  "branch_name": "Filial nomi",
-  "latitude": "Kenglik",
-  "longitude": "Uzunlik",
   "status": "Holati",
-  "tin": "STIR",
-  "organization_name": "Tashkilot nomi",
-  "approve": "Tasdiqlash",
-  "version": "Versiya",
-  "force_update": "Majburiy yangilash",
-  "created_date": "Yaratilgan sanasi",
-  "updated_date": "Tahrirlangan sanasi"
+  "created_date": "Yaratilgan sana",
+  "updated_date": "Tahrirlangan sana"
 }

@@ -2,7 +2,7 @@ import { FormControl, FormField, FormItem, FormLabel, FormMessage, Input } from 
 import { cn } from '@topcoder/lib'
 import { Eye, EyeOff } from 'lucide-react'
 import React, { useState } from 'react'
-import { Control, FieldValues, Path } from 'react-hook-form'
+import type { Control, FieldValues, Path } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 
 interface FormPasswordInputProps<T extends FieldValues> extends Omit<

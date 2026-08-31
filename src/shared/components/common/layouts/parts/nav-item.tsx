@@ -7,7 +7,7 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
 } from '@topcoder/components'
-import { INavigationItem } from '@topcoder/config'
+import type { INavigationItem } from '@topcoder/config'
 import { cn } from '@topcoder/lib'
 import { ChevronRight } from 'lucide-react'
 import { useTranslation } from 'react-i18next'

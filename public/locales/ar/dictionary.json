@@ -1,0 +1,40 @@
+{
+  "title": "المعجم",
+  "arabic": "العربية",
+  "uzbek": "بالأوزبكية",
+  "russian": "بالروسية",
+  "english": "بالإنجليزية",
+  "root": "الجذر",
+  "pattern": "الوزن",
+  "frequency": "التكرار",
+  "family": "الكلمات المشتقة من الجذر",
+  "in_the_quran": "مواضعها في القرآن",
+  "occurs": "تتكرر {{count}} مرة",
+  "coverage_upto": "حتى هذه الكلمة {{value}}%",
+  "gloss_missing": "بلا معنى",
+  "gloss_draft": "مسودة",
+  "gloss_verified": "مُراجَعة",
+  "transcription": "النطق",
+  "pos": "نوع الكلمة",
+  "uz": "الأوزبكية",
+  "ru": "الروسية",
+  "en": "الإنجليزية",
+  "description": "ملاحظة",
+  "gloss_status": "حالة الشرح",
+  "frequency_n": "{{count}} مرة في القرآن",
+  "review_cta": "مراجعة الشروح",
+  "review_empty": "لا توجد شروح للمراجعة.",
+  "review_remaining": "{{count}} كلمة في الانتظار",
+  "verify": "اعتماد",
+  "skip": "تخطٍّ",
+  "status": {
+    "MISSING": "بلا شرح",
+    "DRAFT": "مسودة",
+    "VERIFIED": "معتمد"
+  },
+  "pos_label": {
+    "NOUN": "اسم",
+    "VERB": "فعل",
+    "PARTICLE": "حرف"
+  }
+}

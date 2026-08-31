@@ -1,6 +1,6 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@topcoder/components/ui/accordion'
 import { cn } from '@topcoder/lib'
-import { FC, ReactNode } from 'react'
+import type { FC, ReactNode } from 'react'
 
 import type { DetailCardAccordionItemProps, DetailCardAccordionProps } from '../model/detail-card-types'
 

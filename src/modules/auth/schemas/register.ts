@@ -2,16 +2,14 @@ import { z } from 'zod'
 
 export const registerSchema = z
   .object({
-    username: z.string().trim().min(3, 'invalid_value'),
-    password: z.string().trim().min(6, 'invalid_value'),
-    confirmPassword: z.string().trim().min(6, 'invalid_value'),
-    fullName: z.string().trim().min(1, 'required_field'),
-    phoneNumber: z.string().trim().min(1, 'required_field'),
+    username: z.string().trim().min(5, 'login_min_length').max(30, 'login_max_length'),
+    password: z.string().trim().min(8, 'password_min_length').max(72, 'password_max_length'),
+    confirmPassword: z.string().trim().min(8, 'password_min_length'),
+    fullName: z.string().trim().min(1, 'required_field').max(150, 'invalid_value'),
+    phoneNumber: z.string().trim().max(20, 'invalid_value').optional().or(z.literal('')),
     email: z.string().trim().email('invalid_value'),
-    regionId: z.string().trim().min(1, 'required_field'),
-    districtId: z.string().trim().min(1, 'required_field'),
   })
   .refine((data) => data.password === data.confirmPassword, {
-    message: 'invalid_value',
+    message: 'passwords_do_not_match',
     path: ['confirmPassword'],
   })

@@ -1,0 +1,39 @@
+{
+  "title": "Yuklamalar",
+  "hint": "O‘zagi yo‘q so‘zlar — sarf ularga tegmaydi. Lekin grammatika aynan shu yerda: har bir yuklama keyingi so‘zning holatini belgilaydi.",
+  "coverage_note": "Atigi {{count}} ta so‘z — lekin ular Qur’onning {{tokens}} ta bo‘lagini, ya’ni {{percent}}% ini tashkil qiladi.",
+  "tokens": "{{count}} marta",
+  "grammar_effect": "Grammatik ta’siri",
+  "explanation": "Tushuntirish",
+  "example_verse": "Misol oyat",
+  "attachment_standalone": "Alohida yoziladi",
+  "attachment_prefix": "Oldiga qo‘shiladi",
+  "attachment_suffix": "Oxiriga qo‘shiladi",
+  "category": {
+    "PREPOSITION": "Old ko‘makchilar (jar harflari)",
+    "CONJUNCTION": "Bog‘lovchilar",
+    "PRONOUN": "Qo‘shimcha olmoshlar",
+    "DEFINITE_ARTICLE": "Aniqlik artikli",
+    "NEGATION": "Inkor",
+    "EMPHASIS": "Ta’kid (إِنّ oilasi)",
+    "RELATIVE": "Nisbiy olmoshlar",
+    "CONDITION": "Shart",
+    "EXCEPTION": "Istisno",
+    "SUBORDINATOR": "Masdar yasovchi",
+    "ADVERB": "O‘rin-payt",
+    "VOCATIVE": "Chaqiruv",
+    "INTERROGATIVE": "So‘roq",
+    "ANSWER": "Javob",
+    "FUTURE": "Kelasi zamon",
+    "DEMONSTRATIVE": "Ko‘rsatish olmoshlari",
+    "OTHER": "Boshqa"
+  },
+  "effect": {
+    "GENITIVE": "Keyingi otni majrur qiladi — kasra",
+    "ACCUSATIVE_NOUN": "Keyingi otni mansub qiladi — fatha",
+    "NOMINATIVE_NOUN": "Keyingi otni marfu’ qiladi — damma",
+    "ACCUSATIVE_VERB": "Keyingi fe’lni mansub qiladi — fatha",
+    "JUSSIVE_VERB": "Keyingi fe’lni majzum qiladi — sukun",
+    "NONE": "O‘zgartirmaydi"
+  }
+}

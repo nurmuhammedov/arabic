@@ -1,6 +1,6 @@
-import { Map, MapPin, Users } from 'lucide-react'
+import { BookOpen, ShieldCheck, Users } from 'lucide-react'
 
-import { IMenuSection } from '../sidebar'
+import type { IMenuSection } from '../sidebar'
 
 export const adminMenu: IMenuSection[] = [
   {
@@ -11,15 +11,20 @@ export const adminMenu: IMenuSection[] = [
         url: '/superadmin/users',
         icon: <Users className="size-4" />,
       },
+    ],
+  },
+  {
+    title: 'dictionary_section',
+    items: [
       {
-        title: 'regions',
-        url: '/superadmin/regions',
-        icon: <Map className="size-4" />,
+        title: 'dictionary',
+        url: '/superadmin/dictionary',
+        icon: <BookOpen className="size-4" />,
       },
       {
-        title: 'districts',
-        url: '/superadmin/districts',
-        icon: <MapPin className="size-4" />,
+        title: 'gloss_review',
+        url: '/superadmin/dictionary/review',
+        icon: <ShieldCheck className="size-4" />,
       },
     ],
   },

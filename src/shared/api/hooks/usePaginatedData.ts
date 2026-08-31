@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { CommonService } from '@topcoder/api'
 import { useTypedSelector } from '@topcoder/hooks'
-import { IListResponse, IQueryParams } from '@topcoder/types'
+import type { IListResponse, IQueryParams } from '@topcoder/types'
 import { useTranslation } from 'react-i18next'
 
 export const usePaginatedData = <TResponse>(
@@ -29,7 +29,7 @@ export const usePaginatedData = <TResponse>(
 
   return {
     ...queryMethods,
-    data: data,
+    data,
     totalElements: page?.totalElements || 0,
     totalPages: page?.totalPages || 1,
     page: page || {

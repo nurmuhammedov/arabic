@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { AuthService } from '@topcoder/api'
-import { ILoginResponse, IUser } from '@topcoder/types'
+import type { ILoginResponse, IUser } from '@topcoder/types'
 
 export const login = createAsyncThunk<ILoginResponse, Record<string, unknown>>('auth/login', async (credentials) => {
   return AuthService.login(credentials)

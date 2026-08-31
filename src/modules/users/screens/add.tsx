@@ -1,14 +1,12 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useAdd, useData } from '@topcoder/api/hooks'
+import { useAdd } from '@topcoder/api/hooks'
 import { Form, FormGrid, FormInput, FormPasswordInput, FormPhoneInput, FormSelect, GoBack } from '@topcoder/components'
 import { Button } from '@topcoder/components/ui'
 import { USER_ROLE_LABELS, UserRole } from '@topcoder/constants'
-import { userSchema, UserSchemaType } from '@topcoder/modules/users/schemas'
-import { IUser, IUserCreatePayload } from '@topcoder/modules/users/users.types'
-import { IIDName } from '@topcoder/types'
+import { userSchema, type UserSchemaType } from '@topcoder/modules/users/schemas'
+import type { IUser, IUserCreatePayload } from '@topcoder/modules/users/users.types'
 import { Save } from 'lucide-react'
-import { useEffect } from 'react'
-import { useForm, useWatch } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 
@@ -23,27 +21,11 @@ export default function UsersAddScreen() {
       fullName: '',
       phoneNumber: '',
       email: '',
-      regionId: '',
-      districtId: '',
       role: UserRole.STUDENT,
       password: '',
       confirmPassword: '',
     },
   })
-
-  const selectedRegionId = useWatch({ control: form.control, name: 'regionId' })
-
-  const { data: regions } = useData<IIDName[]>('/regions/select', 'regions-select')
-  const { data: districts } = useData<IIDName[]>(
-    '/districts/select',
-    ['districts-select', selectedRegionId],
-    { regionId: selectedRegionId },
-    !!selectedRegionId
-  )
-
-  useEffect(() => {
-    form.setValue('districtId', '')
-  }, [selectedRegionId, form])
 
   const roleOptions = Object.values(UserRole).map((role) => ({
     id: role,
@@ -58,8 +40,6 @@ export default function UsersAddScreen() {
       fullName: data.fullName,
       phoneNumber: data.phoneNumber,
       email: data.email,
-      regionId: data.regionId,
-      districtId: data.districtId,
       role: data.role,
       password: data.password,
     }
@@ -81,33 +61,13 @@ export default function UsersAddScreen() {
             <FormInput control={form.control} name="fullName" label={t('full_name', { ns: 'form' })} required />
             <FormInput control={form.control} name="username" label={t('username', { ns: 'form' })} required />
             <FormInput control={form.control} name="email" label={t('email', { ns: 'form' })} required />
-            <FormPhoneInput
-              control={form.control}
-              name="phoneNumber"
-              label={t('phone_number', { ns: 'form' })}
-              required
-            />
+            <FormPhoneInput control={form.control} name="phoneNumber" label={t('phone_number', { ns: 'form' })} />
             <FormSelect
               control={form.control}
               name="role"
               label={t('role', { ns: 'form' })}
               options={roleOptions}
               required
-            />
-            <FormSelect
-              control={form.control}
-              name="regionId"
-              label={t('region_id', { ns: 'labels' })}
-              options={regions || []}
-              required
-            />
-            <FormSelect
-              control={form.control}
-              name="districtId"
-              label={t('district_id', { ns: 'labels' })}
-              options={districts || []}
-              required
-              disabled={!selectedRegionId}
             />
             <FormPasswordInput control={form.control} name="password" label={t('password', { ns: 'form' })} required />
             <FormPasswordInput

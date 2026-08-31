@@ -46,7 +46,7 @@ export const CustomAlert: React.FC<AlertToastProps> = ({ title, type = 'success'
       {title && (
         <div
           className={cn(
-            'font-golos text-base font-normal leading-[112%]',
+            'text-base font-normal leading-[112%]',
             'min-w-0 flex-1 break-all',
             type === 'success' && 'text-[#18BA92]',
             type === 'error' && 'text-[#b3261e]',

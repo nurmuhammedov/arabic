@@ -1,4 +1,4 @@
-import { z } from 'zod'
+import type { z } from 'zod'
 
 export type IQueryParams = Record<string, string | number | boolean | undefined | null | (string | number | boolean)[]>
 

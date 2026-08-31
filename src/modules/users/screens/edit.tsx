@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useData, useDetail, useUpdate } from '@topcoder/api/hooks'
+import { useDetail, useUpdate } from '@topcoder/api/hooks'
 import {
   Form,
   FormGrid,
@@ -12,11 +12,10 @@ import {
 } from '@topcoder/components'
 import { Button } from '@topcoder/components/ui'
 import { USER_ROLE_LABELS, UserRole } from '@topcoder/constants'
-import { userEditSchema, UserEditSchemaType } from '@topcoder/modules/users/schemas'
-import { IUser, IUserUpdatePayload } from '@topcoder/modules/users/users.types'
-import { IIDName } from '@topcoder/types'
+import { userEditSchema, type UserEditSchemaType } from '@topcoder/modules/users/schemas'
+import type { IUser, IUserUpdatePayload } from '@topcoder/modules/users/users.types'
 import { Save } from 'lucide-react'
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 import { useForm, useWatch } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { useNavigate, useParams } from 'react-router-dom'
@@ -35,8 +34,6 @@ export default function UsersEditScreen() {
       fullName: '',
       phoneNumber: '',
       email: '',
-      regionId: '',
-      districtId: '',
       role: UserRole.STUDENT,
       changePassword: false,
       password: '',
@@ -44,45 +41,22 @@ export default function UsersEditScreen() {
     },
   })
 
-  const isResetting = useRef(false)
-
   useEffect(() => {
     if (user) {
-      isResetting.current = true
       form.reset({
         username: user.username,
         fullName: user.fullName,
         phoneNumber: user.phoneNumber,
         email: user.email,
-        regionId: user.region?.id || '',
-        districtId: user.district?.id || '',
         role: user.role,
         changePassword: false,
         password: '',
         confirmPassword: '',
       })
-      setTimeout(() => {
-        isResetting.current = false
-      }, 0)
     }
   }, [user, form])
 
-  const selectedRegionId = useWatch({ control: form.control, name: 'regionId' })
   const changePassword = useWatch({ control: form.control, name: 'changePassword' })
-
-  const { data: regions } = useData<IIDName[]>('/regions/select', 'regions-select')
-  const { data: districts } = useData<IIDName[]>(
-    '/districts/select',
-    ['districts-select', selectedRegionId],
-    { regionId: selectedRegionId },
-    !!selectedRegionId
-  )
-
-  useEffect(() => {
-    if (!isResetting.current) {
-      form.setValue('districtId', '')
-    }
-  }, [selectedRegionId, form])
 
   const roleOptions = Object.values(UserRole).map((role) => ({
     id: role,
@@ -97,8 +71,6 @@ export default function UsersEditScreen() {
       fullName: data.fullName,
       phoneNumber: data.phoneNumber,
       email: data.email,
-      regionId: data.regionId,
-      districtId: data.districtId,
       role: data.role,
     }
 
@@ -139,21 +111,6 @@ export default function UsersEditScreen() {
               label={t('role', { ns: 'form' })}
               options={roleOptions}
               required
-            />
-            <FormSelect
-              control={form.control}
-              name="regionId"
-              label={t('region_id', { ns: 'labels' })}
-              options={regions || []}
-              required
-            />
-            <FormSelect
-              control={form.control}
-              name="districtId"
-              label={t('district_id', { ns: 'labels' })}
-              options={districts || []}
-              required
-              disabled={!selectedRegionId}
             />
             <FormSwitch
               control={form.control}

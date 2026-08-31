@@ -47,3 +47,6 @@ temp/
 
 # Rules
 cursorrules
+
+# Vite PWA dev output
+dev-dist

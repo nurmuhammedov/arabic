@@ -1,7 +1,7 @@
-import { ErrorBoundaryProps, ErrorBoundaryState, ErrorFallbackProps } from '@topcoder/components'
+import type { ErrorBoundaryProps, ErrorBoundaryState, ErrorFallbackProps } from '@topcoder/components'
 import { IS_DEV } from '@topcoder/config'
-import { Component, ErrorInfo, ReactNode } from 'react'
-import { NavigateFunction } from 'react-router-dom'
+import { Component, type ErrorInfo, type ReactNode } from 'react'
+import type { NavigateFunction } from 'react-router-dom'
 
 import { ErrorFallback } from './error-fallback'
 
@@ -32,7 +32,7 @@ export class ErrorBoundaryCore extends Component<Props, ErrorBoundaryState> {
     this.props.onError?.(error, errorInfo)
 
     if (IS_DEV) {
-      console.log(`%cTopcoder's ErrorBoundary caught an error 🔥`, 'color: red; font-weight: bold; font-size: 16px;')
+      console.error('ErrorBoundary caught an error', error, errorInfo)
     }
   }
 

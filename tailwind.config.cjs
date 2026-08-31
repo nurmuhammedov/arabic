@@ -5,16 +5,12 @@ module.exports = {
   theme: {
     extend: {
       maxWidth: {
-        '3xl': '1600px',
-        '4xl': '1920px',
-        '5xl': '2560px',
-        '6xl': '3000px',
-        '7xl': '3840px',
-        '8xl': '4480px',
+        screen: '1600px',
+        wide: '1920px',
       },
       fontFamily: {
-        sans: ['Golos Text', 'system-parts', 'sans-serif'],
-        golos: ['Golos Text', 'sans-serif'],
+        sans: ['Golos Text', 'system-ui', 'sans-serif'],
+        arabic: ['Amiri', 'Scheherazade New', 'Traditional Arabic', 'serif'],
       },
       borderRadius: {
         lg: 'var(--radius)',

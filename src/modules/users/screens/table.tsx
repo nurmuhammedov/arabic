@@ -1,16 +1,16 @@
-import { ColumnDef } from '@tanstack/react-table'
+import type { ColumnDef } from '@tanstack/react-table'
 import { usePaginatedData } from '@topcoder/api/hooks'
 import { DataTable, DataTableRowActions } from '@topcoder/components'
 import { Button } from '@topcoder/components/ui'
-import { IUser } from '@topcoder/modules/users/users.types'
-import { format } from 'date-fns'
+import { formatDate } from '@topcoder/lib'
+import type { IUser } from '@topcoder/modules/users/users.types'
 import { Plus } from 'lucide-react'
 import { parseAsInteger, parseAsString, useQueryState } from 'nuqs'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 
 export default function UsersTableScreen() {
-  const { t } = useTranslation(['table', 'common', 'form'])
+  const { t } = useTranslation(['table', 'common', 'form', 'users'])
   const navigate = useNavigate()
 
   const [page] = useQueryState('page', parseAsInteger.withDefault(1))
@@ -48,20 +48,13 @@ export default function UsersTableScreen() {
       },
     },
     {
-      id: 'region',
-      header: t('region', { ns: 'table' }),
-      cell: ({ row }) => {
-        const item = row.original
-        return item.region?.name || '-'
-      },
+      accessorKey: 'email',
+      header: t('email', { ns: 'form' }),
     },
     {
-      id: 'district',
-      header: t('district', { ns: 'table' }),
-      cell: ({ row }) => {
-        const item = row.original
-        return item.district?.name || '-'
-      },
+      accessorKey: 'role',
+      header: t('role', { ns: 'form' }),
+      cell: ({ row }) => t(row.original.role, { ns: 'users' }),
     },
     {
       accessorKey: 'createdAt',
@@ -69,7 +62,7 @@ export default function UsersTableScreen() {
       cell: ({ row }) => {
         const item = row.original
         const date = item.createdAt
-        return date ? format(new Date(date), 'dd.MM.yyyy') : '-'
+        return formatDate(date)
       },
     },
     {

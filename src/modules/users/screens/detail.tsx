@@ -2,8 +2,8 @@ import { useDetail } from '@topcoder/api/hooks'
 import { DetailCardAccordion, DetailRow, GoBack } from '@topcoder/components'
 import { Button } from '@topcoder/components/ui'
 import { USER_ROLE_LABELS } from '@topcoder/constants'
-import { IUser } from '@topcoder/modules/users/users.types'
-import { format } from 'date-fns'
+import { formatDateTime } from '@topcoder/lib'
+import type { IUser } from '@topcoder/modules/users/users.types'
 import { Edit } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate, useParams } from 'react-router-dom'
@@ -41,15 +41,13 @@ export default function UsersDetailScreen() {
             <DetailRow title={t('email', { ns: 'labels' })} value={user.email} />
             <DetailRow title={t('phone_number', { ns: 'labels' })} value={user.phoneNumber} />
             <DetailRow title={t('role', { ns: 'labels' })} value={USER_ROLE_LABELS[user.role] || user.role} />
-            <DetailRow title={t('region', { ns: 'table' })} value={user.region?.name} />
-            <DetailRow title={t('district', { ns: 'table' })} value={user.district?.name} />
             <DetailRow
               title={t('created_date', { ns: 'table' })}
-              value={user.createdAt ? format(new Date(user.createdAt), 'dd.MM.yyyy HH:mm') : '-'}
+              value={formatDateTime(user.createdAt)}
             />
             <DetailRow
               title={t('updated_date', { ns: 'table' })}
-              value={user.updatedAt ? format(new Date(user.updatedAt), 'dd.MM.yyyy HH:mm') : '-'}
+              value={formatDateTime(user.updatedAt)}
             />
           </div>
         </DetailCardAccordion.Item>

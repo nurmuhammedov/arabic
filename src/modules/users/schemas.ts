@@ -1,33 +1,29 @@
 import { UserRole } from '@topcoder/constants'
 import { z } from 'zod'
 
-export const userBaseSchema = z.object({
-  username: z.string().trim().min(3, 'invalid_value'),
-  fullName: z.string().trim().min(1, 'required_field'),
-  phoneNumber: z.string().trim().length(13, 'invalid_value'),
+const identityFields = {
+  username: z.string().trim().min(5, 'login_min_length').max(30, 'login_max_length'),
+  fullName: z.string().trim().min(1, 'required_field').max(150, 'invalid_value'),
+  phoneNumber: z.string().trim().max(20, 'invalid_value').optional().or(z.literal('')),
   email: z.string().trim().email('invalid_value'),
-  regionId: z.string().trim().min(1, 'required_field'),
-  districtId: z.string().trim().min(1, 'required_field'),
   role: z.nativeEnum(UserRole),
-  password: z.string().trim().min(6, 'invalid_value'),
-  confirmPassword: z.string().trim().min(6, 'invalid_value'),
+}
+
+export const userBaseSchema = z.object({
+  ...identityFields,
+  password: z.string().trim().min(8, 'password_min_length').max(72, 'password_max_length'),
+  confirmPassword: z.string().trim().min(8, 'password_min_length'),
 })
 
 export type UserSchemaType = z.infer<typeof userBaseSchema>
 
 export const userSchema = userBaseSchema.refine((data) => data.password === data.confirmPassword, {
-  message: 'invalid_value',
+  message: 'passwords_do_not_match',
   path: ['confirmPassword'],
 })
 
 export const userEditBaseSchema = z.object({
-  username: z.string().trim().min(3, 'invalid_value'),
-  fullName: z.string().trim().min(1, 'required_field'),
-  phoneNumber: z.string().trim().length(13, 'invalid_value'),
-  email: z.string().trim().email('invalid_value'),
-  regionId: z.string().trim().min(1, 'required_field'),
-  districtId: z.string().trim().min(1, 'required_field'),
-  role: z.nativeEnum(UserRole),
+  ...identityFields,
   changePassword: z.boolean(),
   password: z.string().trim().optional(),
   confirmPassword: z.string().trim().optional(),
@@ -36,27 +32,11 @@ export const userEditBaseSchema = z.object({
 export type UserEditSchemaType = z.infer<typeof userEditBaseSchema>
 
 export const userEditSchema = userEditBaseSchema
-  .refine(
-    (data) => {
-      if (data.changePassword) {
-        return !!data.password && data.password.length >= 6
-      }
-      return true
-    },
-    {
-      message: 'invalid_value',
-      path: ['password'],
-    }
-  )
-  .refine(
-    (data) => {
-      if (data.changePassword) {
-        return data.password === data.confirmPassword
-      }
-      return true
-    },
-    {
-      message: 'invalid_value',
-      path: ['confirmPassword'],
-    }
-  )
+  .refine((data) => !data.changePassword || (!!data.password && data.password.length >= 8), {
+    message: 'password_min_length',
+    path: ['password'],
+  })
+  .refine((data) => !data.changePassword || data.password === data.confirmPassword, {
+    message: 'passwords_do_not_match',
+    path: ['confirmPassword'],
+  })

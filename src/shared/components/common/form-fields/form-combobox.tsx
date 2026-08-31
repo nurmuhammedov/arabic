@@ -18,7 +18,7 @@ import {
 import { cn } from '@topcoder/lib'
 import { Check, ChevronsUpDown, X } from 'lucide-react'
 import { useState } from 'react'
-import { Control, FieldValues, Path } from 'react-hook-form'
+import type { Control, FieldValues, Path } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 
 interface Option {

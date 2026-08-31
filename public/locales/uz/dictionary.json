@@ -1,0 +1,40 @@
+{
+  "title": "Lug‘at",
+  "arabic": "Arabcha",
+  "uzbek": "O‘zbekchasi",
+  "russian": "Ruschasi",
+  "english": "Inglizchasi",
+  "root": "O‘zak",
+  "pattern": "Qolib",
+  "frequency": "Uchrashi",
+  "family": "Shu o‘zakdan yasalgan so‘zlar",
+  "in_the_quran": "Qur’ondagi o‘rinlari",
+  "occurs": "{{count}} marta uchraydi",
+  "coverage_upto": "Shu so‘zgacha {{value}}%",
+  "gloss_missing": "Ma’no yo‘q",
+  "gloss_draft": "Qoralama",
+  "gloss_verified": "Tasdiqlangan",
+  "transcription": "Transkripsiya",
+  "pos": "So‘z turkumi",
+  "uz": "O‘zbekcha",
+  "ru": "Ruscha",
+  "en": "Inglizcha",
+  "description": "Izoh",
+  "gloss_status": "Izoh holati",
+  "frequency_n": "Qur’onda {{count}} marta",
+  "review_cta": "Izohlarni tekshirish",
+  "review_empty": "Tekshiriladigan izoh qolmadi.",
+  "review_remaining": "Navbatda {{count}} ta so‘z",
+  "verify": "Tasdiqlash",
+  "skip": "O‘tkazib yuborish",
+  "status": {
+    "MISSING": "Izohsiz",
+    "DRAFT": "Qoralama",
+    "VERIFIED": "Tasdiqlangan"
+  },
+  "pos_label": {
+    "NOUN": "Ot",
+    "VERB": "Fe’l",
+    "PARTICLE": "Yuklama"
+  }
+}

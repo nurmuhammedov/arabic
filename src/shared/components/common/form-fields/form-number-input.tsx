@@ -1,7 +1,7 @@
 import { FormControl, FormField, FormItem, FormLabel, FormMessage, NumberInput } from '@topcoder/components'
 import { cn } from '@topcoder/lib'
-import { ComponentProps, ReactNode } from 'react'
-import { FieldValues, Path, UseFormReturn } from 'react-hook-form'
+import type { ComponentProps, ReactNode } from 'react'
+import type { FieldValues, Path, UseFormReturn } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 
 interface FormNumberInputProps<T extends FieldValues> extends ComponentProps<typeof NumberInput> {
