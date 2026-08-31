@@ -6,6 +6,17 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 
 const isAnalyze = process.env.ANALYZE === 'true'
 
+/**
+ * Lets the API share the page's origin. A tunnel or a deployment terminates TLS
+ * on one host, so the browser cannot reach the API on a port of its own.
+ */
+const API_PROXY = {
+  '/api': { target: 'http://localhost:8080', changeOrigin: true },
+}
+
+/** Tunnels hand out a fresh subdomain each run, so the whole domain is allowed. */
+const ALLOWED_HOSTS = ['.trycloudflare.com', '.ngrok-free.app', '.ngrok.io']
+
 export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
@@ -57,9 +68,14 @@ export default defineConfig(({ mode }) => ({
     host: true,
     port: 7070,
     open: false,
+    proxy: API_PROXY,
+    allowedHosts: ALLOWED_HOSTS,
   },
   preview: {
+    host: true,
     port: 7070,
+    proxy: API_PROXY,
+    allowedHosts: ALLOWED_HOSTS,
   },
   esbuild: {
     drop: mode === 'production' ? ['console', 'debugger'] : [],

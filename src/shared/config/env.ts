@@ -8,6 +8,11 @@ const getBaseUrl = (): string => {
   if (configured) return configured
 
   const { protocol, hostname } = window.location
+
+  // Over HTTPS the API cannot sit on a bare port of its own — a tunnel or a
+  // deployment serves it under the same origin, proxied at /api.
+  if (protocol === 'https:') return ''
+
   return `${protocol}//${hostname}:8080`
 }
 
