@@ -1,0 +1,39 @@
+{
+  "title": "الحروف",
+  "hint": "كلمات بلا جذر، لا يطالها الصرف — لكن النحو العملي فيها.",
+  "coverage_note": "{{count}} كلمة فقط، وتغطي {{tokens}} مقطعًا أي {{percent}}% من القرآن.",
+  "tokens": "{{count}} مرة",
+  "grammar_effect": "عملها",
+  "explanation": "الشرح",
+  "example_verse": "آية مثال",
+  "attachment_standalone": "منفصلة",
+  "attachment_prefix": "سابقة متصلة",
+  "attachment_suffix": "لاحقة متصلة",
+  "category": {
+    "PREPOSITION": "حروف الجر",
+    "CONJUNCTION": "حروف العطف",
+    "PRONOUN": "الضمائر المتصلة",
+    "DEFINITE_ARTICLE": "أداة التعريف",
+    "NEGATION": "حروف النفي",
+    "EMPHASIS": "أخوات إنّ",
+    "RELATIVE": "الأسماء الموصولة",
+    "CONDITION": "حروف الشرط",
+    "EXCEPTION": "الاستثناء",
+    "SUBORDINATOR": "الحروف المصدرية",
+    "ADVERB": "الظروف",
+    "VOCATIVE": "النداء",
+    "INTERROGATIVE": "الاستفهام",
+    "ANSWER": "حروف الجواب",
+    "FUTURE": "حروف الاستقبال",
+    "DEMONSTRATIVE": "أسماء الإشارة",
+    "OTHER": "أخرى"
+  },
+  "effect": {
+    "GENITIVE": "يجرّ الاسم بعده",
+    "ACCUSATIVE_NOUN": "ينصب الاسم بعده",
+    "NOMINATIVE_NOUN": "يرفع الاسم بعده",
+    "ACCUSATIVE_VERB": "ينصب الفعل بعده",
+    "JUSSIVE_VERB": "يجزم الفعل بعده",
+    "NONE": "لا عمل له"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "title": "Nahv — gap qurilishi",
+  "hint": "Sarf so‘zning nima ekanini aytadi, nahv esa uning gapda nima qilayotganini. Oyatning har bir so‘zini bilib turib ham, kim kimga nima qilganini faqat nahv ochadi.",
+  "drill_teaser": "Nazariyani o‘qigandan keyin mashq qiling: haqiqiy oyatdan so‘z beriladi, uning holatini va sababini topasiz.",
+  "drill_cta": "I’rob mashqi",
+  "example_verse": "Misol oyat",
+  "kind": {
+    "CASE": "Holatlar — i’rob",
+    "SENTENCE": "Gap turlari",
+    "STRUCTURE": "Qurilmalar",
+    "ROLE": "Gap bo‘laklari"
+  },
+  "irab_title": "I’rob mashqi",
+  "irab_hint": "Ajratilgan so‘z qaysi holatda? Javobdan keyin sababi ko‘rsatiladi.",
+  "which_case": "Bu so‘z qaysi holatda?",
+  "all_causes": "Hammasi",
+  "pick_one": "Bittasini tanlang",
+  "correct": "To‘g‘ri!",
+  "incorrect": "Noto‘g‘ri",
+  "because": "Sababi:",
+  "next_challenge": "Keyingi so‘z",
+  "case": {
+    "NOMINATIVE": "marfu’ — damma",
+    "ACCUSATIVE": "mansub — fatha",
+    "GENITIVE": "majrur — kasra",
+    "JUSSIVE": "majzum — sukun",
+    "SUBJUNCTIVE": "mansub (fe’l)",
+    "INDICATIVE": "marfu’ (fe’l)"
+  },
+  "case_ar": {
+    "NOMINATIVE": "مرفوع",
+    "ACCUSATIVE": "منصوب",
+    "GENITIVE": "مجرور",
+    "JUSSIVE": "مجزوم",
+    "SUBJUNCTIVE": "منصوب",
+    "INDICATIVE": "مرفوع"
+  },
+  "cause": {
+    "PREPOSITION": "Ko‘makchi",
+    "IDAFA": "Izofa",
+    "INNA": "إِنّ oilasi",
+    "OBJECT": "To‘ldiruvchi",
+    "SUBJECT": "Bajaruvchi",
+    "TOPIC": "Ega (mubtada)",
+    "ADJECTIVE": "Sifat",
+    "UNKNOWN": "Aniqlanmagan",
+    "KANA": "كانَ oilasi",
+    "CONJUNCTION": "Atf (bog‘lovchi)"
+  },
+  "cause_note": {
+    "PREPOSITION": "Jar harfidan keyin kelgan ot doim kasrali bo‘ladi.",
+    "IDAFA": "Izofada ikkinchi so‘z doim kasrali. Birinchisida ال bo‘lmaydi.",
+    "INNA": "إِنّ va uning oilasi keyingi otni fathaga o‘tkazadi.",
+    "OBJECT": "Fe’lning to‘ldiruvchisi — ish tushgan narsa — fathali bo‘ladi.",
+    "SUBJECT": "Fe’ldan keyingi bajaruvchi dammali bo‘ladi.",
+    "TOPIC": "Ot gapning egasi dammali bo‘ladi.",
+    "ADJECTIVE": "Sifat o‘zidan oldingi otning holatini takrorlaydi.",
+    "UNKNOWN": "Sababi aniqlanmadi.",
+    "KANA": "كانَ va uning oilasi (ليس، أصبح، ظل، دام، زال) oddiy fe’l emas. Ular ish qildirmaydi, holatni bildiradi. Shuning uchun ulardan keyingi ot bajaruvchi ham, to‘ldiruvchi ham emas: birinchisi — kimligi aytilayotgan ot (ismi) — dammali qoladi, ikkinchisi — u haqda aytilayotgan gap (xabari) — fathaga o‘tadi. Masalan كَانَ ٱللَّهُ غَفُورًا: ٱللَّهُ dammali, غَفُورًا fathali.",
+    "CONJUNCTION": "Oldidagi وَ yoki فَ uni avvalgi so‘zga bog‘laydi, shuning uchun o‘sha so‘zning holatini takrorlaydi."
+  }
+}
