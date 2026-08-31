@@ -1,4 +1,4 @@
-import { ColumnDef, flexRender, getCoreRowModel, useReactTable } from '@tanstack/react-table'
+import { type ColumnDef, flexRender, getCoreRowModel, useReactTable } from '@tanstack/react-table'
 import {
   ContentLoader,
   Pagination,
@@ -25,6 +25,7 @@ interface DataTableProps<TData, TValue> {
   totalElements?: number
   withSerial?: boolean
   showFilters?: boolean
+  onRowClick?: (row: TData) => void
 }
 
 export function DataTable<TData, TValue>({
@@ -35,6 +36,7 @@ export function DataTable<TData, TValue>({
   totalElements,
   withSerial = true,
   showFilters = false,
+  onRowClick,
 }: DataTableProps<TData, TValue>) {
   const { t } = useTranslation('common')
 
@@ -144,7 +146,12 @@ export function DataTable<TData, TValue>({
               </TableRow>
             ) : table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => (
-                <TableRow key={row.id} data-state={row.getIsSelected() && 'selected'}>
+                <TableRow
+                  key={row.id}
+                  data-state={row.getIsSelected() && 'selected'}
+                  className={cn(onRowClick && 'cursor-pointer')}
+                  onClick={onRowClick ? () => onRowClick(row.original) : undefined}
+                >
                   {row.getVisibleCells().map((cell) => {
                     return (
                       <TableCell key={cell.id} className={cell.column.columnDef.meta?.className}>

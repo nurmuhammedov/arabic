@@ -9,10 +9,10 @@ import {
 } from '@topcoder/components/ui/command'
 import { Popover, PopoverContent, PopoverTrigger } from '@topcoder/components/ui/popover'
 import { cn } from '@topcoder/lib'
-import { enGB, uz, uzCyrl } from 'date-fns/locale'
+import { ar, enGB, uz } from 'date-fns/locale'
 import { Check, ChevronLeft } from 'lucide-react'
 import * as React from 'react'
-import { DayButton, DayPicker, DropdownProps, getDefaultClassNames } from 'react-day-picker'
+import { type DayButton, DayPicker, type DropdownProps, getDefaultClassNames } from 'react-day-picker'
 import { useTranslation } from 'react-i18next'
 
 function CalendarDropdown({ value, onChange, options }: DropdownProps) {
@@ -127,7 +127,7 @@ function Calendar({
 }) {
   const defaultClassNames = getDefaultClassNames()
   const { i18n } = useTranslation()
-  const currentLocale = i18n?.language === 'uz' ? uz : i18n?.language === 'uzb' ? uzCyrl : enGB
+  const currentLocale = i18n?.language === 'ar' ? ar : i18n?.language === 'uz' ? uz : enGB
 
   const selected = (props as any).selected
   const defaultMonth = selected instanceof Date ? selected : (selected as any)?.from

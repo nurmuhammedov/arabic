@@ -1,10 +1,7 @@
-import 'react-lazy-load-image-component/src/effects/blur.css'
-
 import logoImg from '@topcoder/assets/images/logo.png'
 import { ContentLoader } from '@topcoder/components/common'
 import { Suspense } from 'react'
 import { useTranslation } from 'react-i18next'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { Outlet } from 'react-router-dom'
 
 export const AuthLayout = () => {
@@ -14,17 +11,16 @@ export const AuthLayout = () => {
     <div className="flex h-screen w-full flex-col lg:flex-row">
       <div className="scrollbar-hidden hidden h-full w-1/2 flex-col items-center justify-center overflow-y-auto bg-teal px-8 lg:flex">
         <div className="flex flex-col items-center justify-center space-y-12">
-          <h4 className="max-w-xl text-center text-2xl font-semibold text-teal-foreground">{t('committee_name')}</h4>
+          <h4 className="max-w-xl text-center text-2xl font-semibold text-teal-foreground">{t('app_name')}</h4>
 
           <div className="relative size-72 overflow-hidden rounded-full shadow-2xl">
-            <LazyLoadImage
+            <img
               alt={t('logo_alt')}
               src={logoImg}
-              effect="blur"
-              wrapperClassName="size-full"
+              width={288}
+              height={288}
+              decoding="async"
               className="size-full object-cover"
-              width="100%"
-              height="100%"
             />
           </div>
 

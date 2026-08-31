@@ -1,5 +1,5 @@
 import { cn } from '@topcoder/lib'
-import React, { ReactNode } from 'react'
+import React, { type ReactNode } from 'react'
 
 interface DetailRowProps {
   title: string

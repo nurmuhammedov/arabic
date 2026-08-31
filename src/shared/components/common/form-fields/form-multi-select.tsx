@@ -5,9 +5,9 @@ import {
   FormLabel,
   FormMessage,
   MultiSelect,
-  MultiSelectOption,
+  type MultiSelectOption,
 } from '@topcoder/components'
-import { Control, FieldValues, Path } from 'react-hook-form'
+import type { Control, FieldValues, Path } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 
 interface FormMultiSelectProps<T extends FieldValues> {

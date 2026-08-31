@@ -4,7 +4,7 @@ import { RefreshCw } from 'lucide-react'
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { ErrorAction, ErrorFallbackProps } from '../types'
+import type { ErrorAction, ErrorFallbackProps } from '../types'
 
 export const ErrorFallback = memo(({ reloadPage }: ErrorFallbackProps) => {
   const { t } = useTranslation('errors')
@@ -24,7 +24,7 @@ export const ErrorFallback = memo(({ reloadPage }: ErrorFallbackProps) => {
         <div className="mb-10 flex w-full max-w-[350px] justify-center px-4">
           <ServerDownIcon className="h-auto w-full" />
         </div>
-        <h2 className="font-golos-text mb-2 text-2xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h2 className="mb-2 text-2xl font-bold tracking-tight text-foreground sm:text-4xl">
           {t('unexpected_error_occurred')}
         </h2>
         <p className="mb-5 text-base text-muted-foreground">{t('please_try_refreshing_page')}</p>

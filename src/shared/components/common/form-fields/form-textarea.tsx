@@ -1,7 +1,7 @@
 import { FormControl, FormField, FormItem, FormLabel, FormMessage, Textarea } from '@topcoder/components'
 import { cn } from '@topcoder/lib'
 import * as React from 'react'
-import { Control, FieldValues, Path } from 'react-hook-form'
+import type { Control, FieldValues, Path } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 
 interface FormTextareaProps<T extends FieldValues> extends Omit<

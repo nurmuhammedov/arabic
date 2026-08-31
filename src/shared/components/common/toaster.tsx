@@ -1,4 +1,4 @@
-import React, { ReactPortal } from 'react'
+import React, { type ReactPortal } from 'react'
 import { createPortal } from 'react-dom'
 import { Toaster as HotToaster } from 'react-hot-toast'
 

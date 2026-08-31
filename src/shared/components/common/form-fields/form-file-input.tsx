@@ -1,5 +1,5 @@
-import { FileInput, FileInputProps, FormField, FormItem, FormLabel, FormMessage } from '@topcoder/components'
-import { Control, FieldValues, Path } from 'react-hook-form'
+import { FileInput, type FileInputProps, FormField, FormItem, FormLabel, FormMessage } from '@topcoder/components'
+import type { Control, FieldValues, Path } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 
 interface FormFileInputProps<T extends FieldValues> extends Omit<FileInputProps, 'name' | 'value' | 'onChange'> {

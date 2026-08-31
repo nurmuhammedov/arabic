@@ -1,7 +1,7 @@
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '@topcoder/components'
 import { Switch } from '@topcoder/components/ui'
 import { cn } from '@topcoder/lib'
-import { Control, FieldValues, Path } from 'react-hook-form'
+import type { Control, FieldValues, Path } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 
 interface FormSwitchProps<T extends FieldValues> {

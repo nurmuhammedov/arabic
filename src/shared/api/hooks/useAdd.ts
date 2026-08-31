@@ -1,4 +1,4 @@
-import { Query, useMutation, useQueryClient } from '@tanstack/react-query'
+import { type Query, useMutation, useQueryClient } from '@tanstack/react-query'
 import { CommonService } from '@topcoder/api'
 import { showMessage } from '@topcoder/lib'
 import { useTranslation } from 'react-i18next'

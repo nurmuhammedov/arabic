@@ -13,7 +13,7 @@ import {
 import { cn } from '@topcoder/lib'
 import { X } from 'lucide-react'
 import React from 'react'
-import { Control, FieldValues, Path } from 'react-hook-form'
+import type { Control, FieldValues, Path } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 
 interface Option {

@@ -1,11 +1,17 @@
-const getBaseUrl = () => {
-  return import.meta.env.VITE_BASE_URL || 'http://localhost:8080'
+/**
+ * Falls back to the host the page was opened from rather than to localhost, so
+ * the dev server can be reached from a phone or tablet on the same network
+ * without rewriting this value every time the address changes.
+ */
+const getBaseUrl = (): string => {
+  const configured = import.meta.env.VITE_BASE_URL
+  if (configured) return configured
+
+  const { protocol, hostname } = window.location
+  return `${protocol}//${hostname}:8080`
 }
 
 export const BASE_URL: string = getBaseUrl()
 
-export const IS_DEV: boolean = import.meta.env.VITE_IS_DEV === 'true' || false
-export const CLIENT_ID: string = import.meta.env.VITE_CLIENT_ID || 'client_id'
-export const CLIENT_SECRET: string = import.meta.env.VITE_CLIENT_SECRET || 'client_secret'
-export const REDIRECT_URI: string = import.meta.env.VITE_REDIRECT_URI || 'redirect_uri'
+export const IS_DEV: boolean = import.meta.env.VITE_IS_DEV === 'true'
 export const PAGE_SIZE: string = '20'

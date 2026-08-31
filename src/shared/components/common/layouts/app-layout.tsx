@@ -21,10 +21,10 @@ export const AppLayout = () => {
       <AppSidebar />
       <SidebarInset className="flex h-svh flex-col overflow-hidden bg-background">
         <Header />
-        <main className="relative flex-1 overflow-auto px-3 pb-3 pt-4">
+        <main className="relative flex-1 overflow-auto px-3 pb-8 pt-4">
           <ErrorBoundary>
             <Suspense fallback={<ContentLoader opacity={30} />}>
-              <div className="mx-auto flex h-full w-full max-w-5xl flex-1 flex-col">
+              <div className="mx-auto flex min-h-full w-full max-w-screen flex-1 flex-col">
                 <Outlet />
               </div>
             </Suspense>

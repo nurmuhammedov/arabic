@@ -4,7 +4,7 @@ import { Input } from '@topcoder/components'
 import { BASE_URL } from '@topcoder/config'
 import { FileTypes } from '@topcoder/constants'
 import { cn } from '@topcoder/lib'
-import { AxiosProgressEvent } from 'axios'
+import type { AxiosProgressEvent } from 'axios'
 import { Download, Eye, Paperclip, Trash2 } from 'lucide-react'
 import React, { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useFormContext } from 'react-hook-form'
@@ -243,45 +243,42 @@ const FileInputComponent = ({
   const [uploadProgress, setUploadProgress] = useState<number>(0)
   const [fileList, setFileList] = useState<FileData[]>([])
 
-  useEffect(() => {
-    const currentUrls = Array.isArray(value) ? value : value ? [value] : []
+  const currentUrls: string[] = Array.isArray(value) ? value : value ? [value] : []
+  const valueKey = currentUrls.join('|')
+  const [syncedKey, setSyncedKey] = useState(valueKey)
 
-    if (currentUrls.length === 0) {
-      if (fileList.length > 0) {
-        fileList.forEach((f) => f.blobUrl && URL.revokeObjectURL(f.blobUrl))
-        setFileList([])
+  // Adjust state during render when the controlled `value` changes.
+  // https://react.dev/learn/you-might-not-need-an-effect#adjusting-some-state-when-a-prop-changes
+  if (valueKey !== syncedKey) {
+    setSyncedKey(valueKey)
+    setFileList((previous) => {
+      if (currentUrls.length === 0) {
+        previous.forEach((f) => f.blobUrl && URL.revokeObjectURL(f.blobUrl))
+        return []
       }
-      return
-    }
 
-    const initDataArray = Array.isArray(initialFilesData)
-      ? initialFilesData
-      : initialFilesData
-        ? [initialFilesData]
-        : undefined
+      const initDataArray = Array.isArray(initialFilesData)
+        ? initialFilesData
+        : initialFilesData
+          ? [initialFilesData]
+          : undefined
 
-    const newFileList = currentUrls.map((urlOrId: string) => {
-      const existing = fileList.find((f) => f.id === urlOrId || f.url === urlOrId)
-      if (existing) return existing
+      return currentUrls.map((urlOrId) => {
+        const existing = previous.find((f) => f.id === urlOrId || f.url === urlOrId)
+        if (existing) return existing
 
-      const initData = initDataArray?.find((d) => d.id === urlOrId || d.url === urlOrId)
+        const initData = initDataArray?.find((d) => d.id === urlOrId || d.url === urlOrId)
 
-      return {
-        id: initData?.id || urlOrId,
-        url: initData?.url || urlOrId,
-        originalName:
-          initData?.originalName ||
-          initData?.name ||
-          (urlOrId ? urlOrId?.toString().split('/').pop() || t('unnamed_file') : t('file')),
-        size: initData?.size,
-      } as FileData
+        return {
+          id: initData?.id || urlOrId,
+          url: initData?.url || urlOrId,
+          originalName:
+            initData?.originalName || initData?.name || urlOrId.toString().split('/').pop() || t('unnamed_file'),
+          size: initData?.size,
+        } as FileData
+      })
     })
-
-    if (JSON.stringify(newFileList.map((f) => f.url)) !== JSON.stringify(fileList.map((f) => f.url))) {
-      setFileList(newFileList)
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [value])
+  }
 
   useEffect(() => {
     return () => {

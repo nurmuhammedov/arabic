@@ -1,5 +1,5 @@
 import { apiClient } from '@topcoder/api'
-import { IAxiosResponse, ILoginResponse, IUser } from '@topcoder/types'
+import type { IAxiosResponse, ILoginResponse, IUser } from '@topcoder/types'
 
 export const AuthService = {
   async login(credentials: { username?: string; password?: string }) {

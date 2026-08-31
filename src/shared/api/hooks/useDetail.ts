@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { CommonService } from '@topcoder/api'
 import { useTypedSelector } from '@topcoder/hooks'
-import { IQueryParams } from '@topcoder/types'
+import type { IQueryParams } from '@topcoder/types'
 import { useTranslation } from 'react-i18next'
 
 export const useDetail = <TResponse>(

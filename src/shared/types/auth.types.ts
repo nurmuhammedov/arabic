@@ -1,4 +1,4 @@
-import { UserRole } from '@topcoder/constants'
+import type { UserRole } from '@topcoder/constants'
 
 export interface IUser {
   id: string

@@ -2,7 +2,7 @@ import { FormControl, FormField, FormItem, FormLabel, FormMessage, Input } from 
 import { cn } from '@topcoder/lib'
 import { isLatin, parseArabicText } from '@topcoder/lib/arabic-mapper'
 import * as React from 'react'
-import { Control, FieldValues, Path } from 'react-hook-form'
+import type { Control, FieldValues, Path } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 
 import { CustomAlert } from '../custom-alert'

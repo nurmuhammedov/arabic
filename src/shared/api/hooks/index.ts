@@ -1,5 +1,3 @@
-export * from './use-districts'
-export * from './use-regions'
 export * from './useAdd'
 export * from './useData'
 export * from './useDelete'
