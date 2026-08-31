@@ -1,6 +1,6 @@
 import react from '@vitejs/plugin-react-swc'
 import { visualizer } from 'rollup-plugin-visualizer'
-import { defineConfig, type PluginOption } from 'vite'
+import { defineConfig, type PluginOption, type ProxyOptions } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
 import tsconfigPaths from 'vite-tsconfig-paths'
 
@@ -10,11 +10,11 @@ const isAnalyze = process.env.ANALYZE === 'true'
  * Lets the API share the page's origin. A tunnel or a deployment terminates TLS
  * on one host, so the browser cannot reach the API on a port of its own.
  */
-const API_PROXY = {
+const API_PROXY: Record<string, ProxyOptions> = {
   '/api': {
     target: 'http://localhost:8080',
     changeOrigin: true,
-    configure: (proxy: { on: (event: string, handler: () => void) => void }) => {
+    configure: (proxy) => {
       // A client that hangs up mid-request makes the proxy emit an error event
       // with nothing listening, and an unhandled error event takes the whole
       // server down. Through a tunnel that happens routinely.
