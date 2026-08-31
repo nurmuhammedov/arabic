@@ -1,6 +1,6 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import { login, logout, me, register } from '@topcoder/store'
-import { IAuth, ILoginResponse, IUser } from '@topcoder/types'
+import type { IAuth, ILoginResponse, IUser } from '@topcoder/types'
 
 const initialState: IAuth = {
   user: null,

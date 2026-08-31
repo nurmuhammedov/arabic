@@ -3,10 +3,11 @@ import { Button, Form, FormInput, FormPasswordInput } from '@topcoder/components
 import { useActions, useTypedSelector } from '@topcoder/hooks'
 import { cn } from '@topcoder/lib'
 import { loginSchema } from '@topcoder/modules/auth/schemas'
-import { InferType } from '@topcoder/types'
-import { ComponentPropsWithoutRef } from 'react'
+import type { InferType } from '@topcoder/types'
+import type { ComponentPropsWithoutRef } from 'react'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 
 export function AdminLoginForm({ className }: ComponentPropsWithoutRef<'form'>) {
   const { t } = useTranslation('auth')
@@ -28,7 +29,13 @@ export function AdminLoginForm({ className }: ComponentPropsWithoutRef<'form'>) 
         onSubmit={form.handleSubmit((data) => login(data))}
       >
         <div className="flex flex-col items-center gap-2 text-center">
-          <h1 className="text-2xl font-bold">{t('admin_panel')}</h1>
+          <h1 className="text-2xl font-bold">{t('system_login')}</h1>
+          <p className="text-sm text-muted-foreground">
+            {t('no_account_yet')}{' '}
+            <Link to="/auth/register" className="underline underline-offset-4">
+              {t('register')}
+            </Link>
+          </p>
         </div>
 
         <div className="grid gap-4">

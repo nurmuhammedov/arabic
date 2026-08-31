@@ -91,19 +91,9 @@
     height: 0;
   }
 
-  .font-arabic {
-    font-family: 'Golos Text', 'Scheherazade New', 'Amiri', serif;
-    direction: rtl;
-    line-height: 1.8;
-    font-feature-settings:
-      'cv04' on,
-      'cv03' on,
-      'cv01' on;
-  }
-
-  [lang='ar'] {
-    font-family: 'Golos Text', 'Scheherazade New', 'Amiri', serif;
-    direction: rtl;
+  [lang='ar'],
+  [dir='rtl'] {
+    font-family: theme('fontFamily.arabic');
   }
 
   input.font-arabic,
@@ -125,96 +115,23 @@
   }
 }
 
-.qr-print-area {
-  display: none;
-}
-
-.qr-label-card .qr-label-body {
-  display: flex;
-  align-items: center;
-  gap: 4mm;
-  height: 100%;
-}
-
-.qr-label-card .qr-label-info {
-  flex: 1;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 1mm;
-}
-
-.qr-label-card .qr-label-field {
-  margin: 0;
-  line-height: 1.3;
-  background: #eef2ff;
-  border-radius: 2px;
-  padding: 0.5mm 1.5mm;
-}
-
-.qr-label-card .qr-label-key {
-  display: block;
-  font-size: 9pt;
-  font-weight: 700;
-  color: #0f172a;
-  white-space: nowrap;
-}
-
-.qr-label-card .qr-label-value {
-  display: block;
-  font-size: 9.5pt;
-  color: #2563eb;
-  font-weight: 500;
-  word-break: break-all;
-}
-
-.qr-label-card .qr-label-qr {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-@media print {
-  @page {
-    size: A4 landscape;
-    margin: 0 !important;
+@layer utilities {
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) transparent;
   }
 
-  html,
-  body {
-    margin: 0 !important;
-    padding: 0 !important;
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
   }
 
-  #root {
-    display: none !important;
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--border));
+    border-radius: 4px;
   }
 
-  .qr-print-area {
-    display: flex !important;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-content: flex-start;
-    gap: 3mm;
-    padding: 5mm;
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  .qr-print-area .qr-label-card {
-    display: none !important;
-  }
-
-  .qr-print-area .qr-label-card.qr-print-visible {
-    display: block !important;
-    width: 135mm;
-    height: 42mm;
-    padding: 2.5mm 4mm;
-    border: 0.5pt solid #aaa;
-    box-sizing: border-box;
-    page-break-inside: avoid;
-    overflow: hidden;
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
   }
 }
