@@ -45,7 +45,9 @@ export default defineConfig(({ mode }) => ({
         icons: [
           { src: 'android-chrome-192x192.png', sizes: '192x192', type: 'image/png' },
           { src: 'android-chrome-512x512.png', sizes: '512x512', type: 'image/png' },
-          { src: 'android-chrome-512x512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
+          // A maskable icon is cropped to the middle 80%, so it needs its own
+          // padded artwork; reusing the full-bleed one made Android zoom into it.
+          { src: 'maskable-512x512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
         ],
       },
       workbox: {
